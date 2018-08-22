@@ -153,6 +153,9 @@
   .masthead.segment, .mario-background:before {
     height: 400px;
   }
+  .mario-background:before {
+    background: url('../images/bgmario2_med.jpg') no-repeat center center!important;
+  }
   .ui.fixed.menu {
     display: none !important;
   }
@@ -188,5 +191,10 @@
   }
   .ui.vertical.stripe {
     padding: 2em 0em;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .mario-background:before {
+    background: url('../images/bgmario2_small.jpg') no-repeat center center!important;
   }
 }
