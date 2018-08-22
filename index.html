@@ -65,7 +65,7 @@
 		    	<div id="downButton"></div>
 			  </div>
 		  </div>
-		  <div class="ui vertical stripe segment about-segment">
+		  <div id="about" class="ui vertical stripe segment about-segment">
 		    <div class="ui middle aligned stackable grid container">
 		      <div class="row">
 		      	<div class="ten wide column">
@@ -82,5 +82,15 @@
 		    </div>
 		  </div>
 		</div>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function (){
+				$("#downButton").click(function() {
+				    $('html, body').animate({
+				        scrollTop: $("#about").offset().top
+				    }, 1000);
+				});
+			});
+		</script>
 	</body>
 </html>

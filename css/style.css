@@ -126,27 +126,27 @@
 }
 
 #downButton {
-    background: transparent url('../images/arrow_down.png') center center no-repeat;
-    background-size: 70px 37px !important;
-    border-radius: 30px;
-    width: 45px;
-    height: 35px;
-    position: absolute;
-    bottom: 35px;
-    z-index: 99;
-    text-indent: -9999 !important;
-    display: block;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    text-align: left !important;
-    cursor: pointer;
-    -o-transition: .5s;
-    -ms-transition: .5s;
-    -moz-transition: .5s;
-    -webkit-transition: .5s;
-    transition: .5s;
-    opacity: .7;
+  background: transparent url('../images/arrow_down.png') center center no-repeat;
+  background-size: 70px 37px !important;
+  border-radius: 30px;
+  width: 45px;
+  height: 35px;
+  position: absolute;
+  bottom: 35px;
+  z-index: 99;
+  text-indent: -9999 !important;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: left !important;
+  cursor: pointer;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: .7;
 }
 
 @media only screen and (min-width: 768px) {
@@ -156,6 +156,9 @@
 }
 
 @media only screen and (max-width: 767px) {
+  #downButton {
+    display: none;
+  }
   .masthead.segment, .mario-background:before {
     height: 400px;
   }
