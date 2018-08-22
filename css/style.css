@@ -149,7 +149,13 @@
     opacity: .7;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width: 768px) {
+  .cartoon-avatar-small {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
   .masthead.segment, .mario-background:before {
     height: 400px;
   }
@@ -183,14 +189,21 @@
   .follow-buttons .button i {
     font-size: 2em;
   }
+  .ui.vertical.stripe {
+    padding: 2em 0em;
+  }
   .cartoon-avatar-wrapper {
     text-align: center;
   }
-  .cartoon-avatar {
-    margin: auto;
+  .about-segment, .cartoon-avatar-wrapper {
+      padding-bottom: 0px!important; 
   }
-  .ui.vertical.stripe {
-    padding: 2em 0em;
+  .cartoon-avatar {
+    height: 270px;
+  }
+
+  .cartoon-avatar-big {
+    display: none;
   }
 }
 @media only screen and (max-width: 400px) {
