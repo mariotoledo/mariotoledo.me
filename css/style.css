@@ -186,4 +186,7 @@
   .cartoon-avatar {
     margin: auto;
   }
+  .ui.vertical.stripe {
+    padding: 2em 0em;
+  }
 }
