@@ -1,0 +1,100 @@
+/* slider css */
+
+/* glide */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  height: 100%;
+  overflow: hidden;
+  *zoom: 1;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+
+.slide-item{
+  height: 100%;
+  float: left;
+  clear: none;
+}
+
+.slider-arrow {
+  position: absolute;
+  display: block;
+  margin-bottom: -20px;
+  padding: 20px;
+}
+
+.slider-arrow--right {
+  bottom: 50%;
+  right: 30px;
+}
+
+.slider-arrow--left {
+  bottom: 50%;
+  left: 30px;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 30px;
+}
+
+.slider-nav__item {
+  width: 12px;
+  height: 12px;
+  float: left;
+  clear: none;
+  display: block;
+  margin: 0 5px;
+  background: #fff;
+}
+
+.slider-nav__item:hover {
+  background: #ccc;
+}
+
+.slider-nav__item--current {
+  background: #ccc;
+}
+
+/* unique slider css */
+.slider-nav__item {
+  border-radius:50%;
+}
+.slider-arrow--right, .slider-arrow--left {
+  background-image: url('glide-arrows.png');
+  background-repeat:no-repeat;
+  width: 17px;
+  height: 28px;
+  display: block;
+  padding: 0;
+}
+.slider-arrow--right {
+background-position: -17px 0;
+}
+.slider-arrow--left {
+
+}
+
+/* home page slider - start */
+.slider1 .slide-item {
+  height:100%;
+  width:100%;
+  background-position: center;
+  background-size: cover;
+}
+.slider2 .slider-arrow--right, .slider2 .slider-arrow--left,
+.slider3 .slider-arrow--right, .slider3 .slider-arrow--left, 
+.slider5 .slider-arrow--right, .slider5 .slider-arrow--left{
+  background-image: url('/old-jeffry-in/assets/glide-arrows-inverted.png');
+}
+.slider2 .slider-nav, .slider3 .slider-nav, .slider5 .slider-nav {
+  display:none;
+}
+/* resume page slider - highlights - end */
+

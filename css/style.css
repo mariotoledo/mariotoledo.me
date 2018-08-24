@@ -149,6 +149,48 @@
   opacity: .7;
 }
 
+.projects-slider {
+  margin-top: -6px;
+}
+
+.slider-content {
+  margin: 100px 0px!important;
+  color: #FFF;
+}
+
+.slider-title {
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.slider-title h2 {
+  display: inline;
+  color: #FFF;
+  background: #000;
+  padding: 5px;
+}
+
+.slider-image img {
+  width: 100%;
+}
+
+.slider1 .item1 {
+  background:linear-gradient(315deg, #5E2563 0%, #65799B 100%);
+}
+.slider1 .item2 {
+  background:url("../images/esquina64_bg.jpg");
+  background-repeat: repeat;
+}
+.slider1 .item3 {
+  background:url("https://jeffry.in/old-jeffry-in/assets/dream3.jpg") no-repeat center;
+}
+.slider1 .item4 {
+  background:url("https://jeffry.in/old-jeffry-in/assets/dream4.jpg") no-repeat center;
+}
+
 @media only screen and (min-width: 768px) {
   .cartoon-avatar-small {
     display: none;

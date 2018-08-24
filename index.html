@@ -43,52 +43,100 @@
 		<!-- =================================== -->
 
 		<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="slider/jeffry.in.slider.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body itemscope itemtype="http://schema.org/WebSite">
 		<div class="pusher">
 			<div style="display: table; width: 100%;">
-			  <div class="ui inverted vertical masthead center aligned segment mario-background">
-			    <div class="text-wrapper-container">
-				    <div class="ui text container" itemscope itemprop="Person" itemtype="http://schema.org/Person">
-				      <h1 class="ui inverted header" itemprop="name">
-				        Mario Toledo
-				      </h1>
-				      <h2>Full Stack Developer, Computer Scientist and Gaming Lover</h2>
-				      <div class="follow-buttons">
-				      	<a alt="Twitter" title="Twitter" href="https://twitter.com/Mario_Toledo" target="_blank" class="ui button"><i class="twitter icon"></i></a>
-				      	<a alt="Github" title="Github" href="https://github.com/mariotoledo" target="_blank" class="ui button"><i class="github icon"></i></a>
-				      	<a alt="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/mario-toledo-16131127/" target="_blank" class="ui button"><i class="linkedin icon"></i></a>
-				      </div>
-				    </div>
+				<div class="ui inverted vertical masthead center aligned segment mario-background">
+			    	<div class="text-wrapper-container">
+				    	<div class="ui text container" itemscope itemprop="Person" itemtype="http://schema.org/Person">
+					      	<h1 class="ui inverted header" itemprop="name">
+					        	Mario Toledo
+					      	</h1>
+					      	<h2>Full Stack Developer, Computer Scientist and Gaming Lover</h2>
+					      	<div class="follow-buttons">
+					      		<a alt="Twitter" title="Twitter" href="https://twitter.com/Mario_Toledo" target="_blank" class="ui button"><i class="twitter icon"></i></a>
+					      		<a alt="Github" title="Github" href="https://github.com/mariotoledo" target="_blank" class="ui button"><i class="github icon"></i></a>
+					      		<a alt="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/mario-toledo-16131127/" target="_blank" class="ui button"><i class="linkedin icon"></i></a>
+					      	</div>
+				    	</div>
+		    		</div>
+		    		<div id="downButton"></div>
+			  	</div>
+		  	</div>
+		  	<div id="about" class="ui vertical stripe segment about-segment">
+		    	<div class="ui middle aligned stackable grid container">
+		      		<div class="row">
+		      			<div class="ten wide column">
+		      				<h2>About me</h2>
+		          			<p>Hello, my name is Mario, and I work professionally with software development for more than 10 years. Currently, I'm focused on Web Development using Mean Stack, but I also have professional experience with Apps, Games and other more corporative software.</p>
+		          			<p>I'm also a Computer Scientist and currently a M.S Computer Engineering Student, with published papers on cientific events. My current studies involves Machine Learning, Big Data, Computer Vision and Microservices.</p>
+		          			<p>And, oh... I really like Pokémon! <3</p>
+		        		</div>
+		      			<div class="six wide column cartoon-avatar-wrapper">
+		      				<img src="images/mariocartoon.jpg" class="cartoon-avatar cartoon-avatar-big" alt="My Squirtle t-shirt"/>
+		      				<img src="images/mariocartoon_sm.jpg" class="cartoon-avatar cartoon-avatar-small" alt="My Squirtle t-shirt"/>
+		      			</div>
+		      		</div>
 		    	</div>
-		    	<div id="downButton"></div>
-			  </div>
-		  </div>
-		  <div id="about" class="ui vertical stripe segment about-segment">
-		    <div class="ui middle aligned stackable grid container">
-		      <div class="row">
-		      	<div class="ten wide column">
-		      		<h2>About me</h2>
-		          	<p>Hello, my name is Mario, and I work professionally with software development for more than 10 years. Currently, I'm focused on Web Development using Mean Stack, but I also have professional experience with Apps, Games and other more corporative software.</p>
-		          	<p>I'm also a Computer Scientist and currently a M.S Computer Engineering Student, with published papers on cientific events. My current studies involves Machine Learning, Big Data, Computer Vision and Microservices.</p>
-		          <p>And, oh... I really like Pokémon! <3</p>
-		        </div>
-		      	<div class="six wide column cartoon-avatar-wrapper">
-		      		<img src="images/mariocartoon.jpg" class="cartoon-avatar cartoon-avatar-big" alt="My Squirtle t-shirt"/>
-		      		<img src="images/mariocartoon_sm.jpg" class="cartoon-avatar cartoon-avatar-small" alt="My Squirtle t-shirt"/>
-		      	</div>
-		      </div>
-		    </div>
-		  </div>
+		  	</div>
+		  	<div class="projects-slider">
+		  		<div class="slider-title">
+		  			<div class="ui container">
+			  			<h2>Personal Projects</h2>
+		  			</div>
+		  		</div>
+			  	<div class="slider slider1">
+				    <div class="slides">
+					    <div class="slide-item item1">
+			      			<div class="ui container stackable grid">
+		      					<div class="row slider-content">
+					      			<div class="eight wide column slider-image">
+					      				<img src="images/streamow.png" alt="My Squirtle t-shirt"/>
+					        		</div>
+					      			<div class="eight wide column">
+					      				<h3>Streamow</h3>
+					      				<p>WIP</p>
+					      				<p>WIP</p>
+					      			</div>
+					      		</div>
+			      			</div>
+			      		</div>
+			      		<div class="slide-item item2"> 
+			      			<div class="ui container stackable grid">
+		      					<div class="row slider-content">
+					      			<div class="eight wide column slider-image">
+					      				<img src="images/estacao64_2.png" alt="My Squirtle t-shirt"/>
+					        		</div>
+					      			<div class="eight wide column">
+					      				<h3>Estação 64</h3>
+					      				<p>WIP</p>
+					      				<p>WIP</p>
+					      			</div>
+					      		</div>
+		      				</div>
+			      		</div>
+			  		</div>
+				</div>
+			</div>
 		</div>
 		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="slider/jquery.glide.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function (){
 				$("#downButton").click(function() {
 				    $('html, body').animate({
 				        scrollTop: $("#about").offset().top
 				    }, 1000);
+				});
+
+				$('.slider').glide({
+					autoplay: false,
+					arrowsWrapperClass: 'slider-arrows',
+					arrowRightText: '',
+				 	arrowLeftText: ''
 				});
 			});
 		</script>
