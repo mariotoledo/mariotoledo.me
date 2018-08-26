@@ -76,8 +76,8 @@
 		          			<p>And, oh... I really like Pokémon! <3</p>
 		        		</div>
 		      			<div class="six wide column cartoon-avatar-wrapper">
-		      				<img src="images/mariocartoon.jpg" class="cartoon-avatar cartoon-avatar-big" alt="My Squirtle t-shirt"/>
-		      				<img src="images/mariocartoon_sm.jpg" class="cartoon-avatar cartoon-avatar-small" alt="My Squirtle t-shirt"/>
+		      				<img src="images/mariocartoon.jpg" class="cartoon-avatar cartoon-avatar-big" alt="My Squirtle t-shirt (drawn by Kyuu)" title="My Squirtle t-shirt (drawn by Kyuu)" />
+		      				<img src="images/mariocartoon_sm.jpg" class="cartoon-avatar cartoon-avatar-small" alt="My Squirtle t-shirt (drawn by Kyuu)" title="My Squirtle t-shirt (drawn by Kyuu)"/>
 		      			</div>
 		      		</div>
 		    	</div>
@@ -94,12 +94,24 @@
 			      			<div class="ui container stackable grid">
 		      					<div class="row slider-content">
 					      			<div class="eight wide column slider-image">
-					      				<img src="images/streamow.png" alt="My Squirtle t-shirt"/>
+					      				<img src="images/streamow.png" alt="Streamow" title="Streamow"/>
 					        		</div>
 					      			<div class="eight wide column">
-					      				<h3>Streamow</h3>
-					      				<p>WIP</p>
-					      				<p>WIP</p>
+					      				<div class="project-content">
+						      				<h3>Streamow</h3>
+						      				<div class="project-subtitle">Your favorite gaming streamer. Anytime. Anywhere.</div>
+						      				<div class="project-content-desktop">
+							      				<p>Streamow brings the most famous gaming stream platforms into a unique catalog focused on user experience to recommend the best streamers and games for viewers. Also, Streamow is available for browsers, Android and iPhone (soon), so users can receive notifications when their favorite streamer is online whenever they are. A recommendation algorithm was also implemented for accurate recommendations.</p>
+							      				<p>Streamow has an API made using Express and Front-End made using Node and Angular JS for Browser version, while mobile versions were made using Ionic Framework.</p>
+							      				<p>This is a collab project, where UI and UX were made by <a href="http://ttarmann.com" target="_blank">Thais Tarmann</a></p>
+							      				<a class="ui button primary" href="http://www.streamow.tv" target="_blank">Browser<span class="project-content-button-version"> version</span></a>
+							      				<a class="ui button primary" href="https://play.google.com/store/apps/details?id=app.com.streamow" target="_blank"><i class="fa fa-android"></i> Android<span class="project-content-button-version"> version</span></a>
+							      				<button class="ui button primary" disabled=""><i class="fa fa-apple"></i> iOS<span class="project-content-button-version"> version</span> (soon)</button>
+						      				</div>
+						      				<div class="project-content-mobile">
+						      					<button class="ui button primary" onclick="$('#streamow-modal').modal('show');">More Details</button>
+						      				</div>
+					      				</div>
 					      			</div>
 					      		</div>
 			      			</div>
@@ -108,12 +120,22 @@
 			      			<div class="ui container stackable grid">
 		      					<div class="row slider-content">
 					      			<div class="eight wide column slider-image">
-					      				<img src="images/estacao64_2.png" alt="My Squirtle t-shirt"/>
+					      				<img src="images/estacao64_2.png" alt="Estação 64" title="Estação 64"/>
 					        		</div>
 					      			<div class="eight wide column">
-					      				<h3>Estação 64</h3>
-					      				<p>WIP</p>
-					      				<p>WIP</p>
+					      				<div class="project-content">
+						      				<h3>Estação 64</h3>
+						      				<div class="project-subtitle">Podcast about games and japanese pop culture</div>
+						      				<div class="project-content-desktop">
+							      				<p>Estação 64 brings weekly podcasts dedicated to electronic games and japanese pop culture in a fun and informative way, using the best of young language to make the viewer feel inside a casual conversation between friends.</p>
+							      				<p>The project contains a CMS and an API built with Meteor for episodes creation and retrieval, while the front-end was build using Node and Hapi JS.</p>
+							      				<p>I'm also one of the hosters and editor of most of episodes.</p>
+							      				<a class="ui button primary" href="http://www.estacao64.com.br" target="_blank">Browse Website</a>
+						      				</div>
+						      				<div class="project-content-mobile">
+						      					<button class="ui button primary" onclick="$('#estacao64-modal').modal('show');">More Details</button>
+						      				</div>
+					      				</div>
 					      			</div>
 					      		</div>
 		      				</div>
@@ -122,8 +144,49 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- ============== MODALS =============== -->
+		<div class="ui modal" id="streamow-modal">
+			<i class="close icon"></i>
+			<div class="header">
+	    		Streamow
+	  		</div>
+	  		<div class="image content">
+	    		<div class="image">
+	      			<img src="images/streamowlogo.svg" alt="Streamow" title="Streamow" />
+	    		</div>
+	    		<div class="description">
+	      			<p>Streamow brings the most famous gaming stream platforms into a unique catalog focused on user experience to recommend the best streamers and games for viewers. Also, Streamow is available for browsers, Android and iPhone (soon), so users can receive notifications when their favorite streamer is online whenever they are. A recommendation algorithm was also implemented for accurate recommendations.</p>
+      				<p>Streamow has an API made using Express and Front-End made using Angular JS for Browser version, while mobile versions were made using Ionic Framework.</p>
+      				<p>This is a collab project, where UI and UX were made by <a href="http://ttarmann.com" target="_blank">Thais Tarmann</a></p>
+      				<a class="ui button primary enabled" href="http://www.streamow.tv" target="_blank">Browser version</a>
+      				<a class="ui button primary enabled" href="https://play.google.com/store/apps/details?id=app.com.streamow" target="_blank"><i class="fa fa-android"></i> Android version</a>
+      				<button class="ui button primary disabled" disabled=""><i class="fa fa-apple"></i> iOS version (soon)</button>
+	    		</div>
+	  		</div>
+		</div>
+
+		<div class="ui modal" id="estacao64-modal">
+			<i class="close icon"></i>
+			<div class="header">
+	    		Estação 64
+	  		</div>
+	  		<div class="image content">
+	    		<div class="image">
+	      			<img src="images/estacaologo.jpg" alt="Estação 64" title="Estação 64" />
+	    		</div>
+	    		<div class="description">
+	      			<p>Estação 64 brings weekly podcasts dedicated to electronic games and japanese pop culture in a fun and informative way, using the best of young language to make the viewer feel inside a casual conversation between friends.</p>
+      				<p>The project contains a CMS and an API built with Meteor for episodes creation and retrieval, while the front-end was build using Node and Hapi JS.</p>
+      				<p>I'm also one of the hosters and editor of most of episodes.</p>
+      				<a class="ui button primary enabled" href="http://www.estacao64.com.br" target="_blank">Browse Website</a>
+	    		</div>
+	  		</div>
+		</div>
+
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="slider/jquery.glide.min.js"></script>
+		<script src="semantic/semantic.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function (){
 				$("#downButton").click(function() {
@@ -138,6 +201,8 @@
 					arrowRightText: '',
 				 	arrowLeftText: ''
 				});
+
+				$('.ui.modal').modal();
 			});
 		</script>
 	</body>
