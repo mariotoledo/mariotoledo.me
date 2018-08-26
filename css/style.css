@@ -201,7 +201,11 @@
   color: #333333;
 }
 .slider1 .item3 {
-  background:url("https://jeffry.in/old-jeffry-in/assets/dream3.jpg") no-repeat center;
+  background:#AB2B2A;
+}
+.slider1 .item3 .ui.primary.button, 
+.slider1 .item3 .ui.primary.buttons .button {
+  color: #AB2B2A;
 }
 .slider1 .item4 {
   background:url("https://jeffry.in/old-jeffry-in/assets/dream4.jpg") no-repeat center;
@@ -209,7 +213,7 @@
 
 .ui.primary.button:active, .ui.primary.buttons .button:active,
 .ui.primary.button:focus, .ui.primary.buttons .button:focus {
-  background: transparent;
+  background: #FFFFFF;
   color: #FFFFFF!important;
 }
 
