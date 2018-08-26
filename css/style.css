@@ -371,9 +371,12 @@
   .cartoon-avatar {
     height: 270px;
   }
-
   .cartoon-avatar-big {
     display: none;
+  }
+  .ui.modal>.close {
+    top: 7px!important;
+    right: 5px!important;
   }
 }
 @media only screen and (max-width: 400px) {
