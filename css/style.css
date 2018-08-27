@@ -208,13 +208,56 @@
   color: #AB2B2A;
 }
 .slider1 .item4 {
-  background:url("https://jeffry.in/old-jeffry-in/assets/dream4.jpg") no-repeat center;
+  background:#333;
+}
+.slider1 .item4 .ui.primary.button, 
+.slider1 .item4 .ui.primary.buttons .button {
+  color: #333333;
+}
+
+.slide-item.item4 .ui.card, .slide-item.item4 .ui.cards>.card {
+  width: 260px;
+}
+
+/* slider sizes */
+@media only screen and (max-width: 767px) {
+  .slide-item.item4 .ui.cards{
+    margin: auto; 
+  } 
+  .slide-item.item4 .project-content-mobile .project-content {
+    padding-top: 2em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .slide-item.item4 .ui.cards {
+    max-width: 550px;
+    margin: auto;
+  } 
+}
+
+@media only screen and (min-width: 992px) and  (max-width: 1199px){
+  .slide-item.item4 .ui.cards {
+    max-width: 830px;
+    margin: auto;
+  }
+  .slide-item.item4 .ui.card:nth-child(3), 
+  .slide-item.item4 .ui.cards>.card:nth-child(3) {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .slide-item.item4 .ui.cards {
+    max-width: 1100px;
+    margin: auto;
+  }
 }
 
 .ui.primary.button:active, .ui.primary.buttons .button:active,
 .ui.primary.button:focus, .ui.primary.buttons .button:focus {
   background: #FFFFFF;
-  color: #FFFFFF!important;
+  color: #333333!important;
 }
 
 .project-content h3 {
@@ -242,7 +285,8 @@
 }
 
 
-.image.content .image img {
+.image.content .image img,
+#githubprojects-modal img {
   width: 100%;
 }
 
