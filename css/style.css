@@ -219,6 +219,10 @@
   width: 260px;
 }
 
+.slider-arrow {
+  cursor: pointer;
+}
+
 /* slider sizes */
 @media only screen and (max-width: 767px) {
   .slide-item.item4 .ui.cards{
