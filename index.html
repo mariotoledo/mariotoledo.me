@@ -314,7 +314,7 @@
 										      <div class="header">Phidelis</div>
 										    </div>
 										</a>
-										<a class="ui card">
+										<a class="ui card" onclick="$('#clubefit-modal').modal('show')">
 										    <div class="image">
 										      <img src="images/clubefit.jpg" alt="Clube Fit">
 										    </div>
@@ -324,7 +324,7 @@
 										</a>
 										<a class="ui card">
 										    <div class="image">
-										      <img src="images/glambox.jpg" alt="Glambox">
+										      <img src="images/glambox.jpg" alt="Glambox" onclick="$('#glambox-modal').modal('show')">
 										    </div>
 										    <div class="content">
 										      <div class="header">Glambox</div>
@@ -332,13 +332,13 @@
 										</a>
 										<a class="ui card">
 										    <div class="image">
-										      <img src="images/oglobo.jpg" alt="Reader Apps">
+										      <img src="images/oglobo.jpg" alt="Reader Apps" onclick="$('#readers-modal').modal('show')">
 										    </div>
 										    <div class="content">
 										      <div class="header">Reader Apps</div>
 										    </div>
 										</a>
-										<a class="ui card">
+										<a class="ui card" onclick="$('#futebol-modal').modal('show')">
 										    <div class="image">
 										      <img src="images/gamefutebol.jpg" alt="Game Futebol">
 										    </div>
@@ -556,6 +556,109 @@
       				<ul>
       					<li><a href="http://www.phidelis.com.br/" target="_blank">Website</a></li>
       				</ul>
+	    		</div>
+	  		</div>
+		</div>
+
+		<div class="ui modal" id="clubefit-modal">
+			<i class="close icon"></i>
+			<div class="header">
+	    		Clube Fit
+	  		</div>
+	  		<div class="image content">
+	    		<div class="description">
+	    			<img class="modal-image-header" src="images/clubefit.jpg" alt="Clube Fit" title="Clube Fit">
+      				<h4>About</h4>
+      				<p>Clube Fit brings a unified experience of e-Commerce, CMS and social network for body builders and fitness life. Users can check articles about exercises and light food while buying items for work outs. Also, users could add each other and post measure changes on specifics timelines </p>
+      				<h4>Technical Sheet</h4>
+      				<p>Code technologies I got involved with while working on this project:</p>
+      				<ul>
+      					<li>Java (JSP)</li>
+	 					<li>MySql</li>
+      					<li>Angular 1</li>
+      					<li>HTML / CSS</li>
+      				</ul>
+	    		</div>
+	  		</div>
+		</div>
+
+		<div class="ui modal" id="glambox-modal">
+			<i class="close icon"></i>
+			<div class="header">
+	    		Glambox
+	  		</div>
+	  		<div class="image content">
+	    		<div class="description">
+	    			<img class="modal-image-header" src="images/glambox.jpg" alt="Glambox" title="Glambox">
+      				<h4>About</h4>
+      				<p>Glambox is the largest beauty signature club in Latin America. Users receive every month at least 5 beauty products in full sizes, miniatures and sachets, and all this in a box with a exclusive design. Users also accumulate glampoints to swap for more items in a rewards club, the Glamclub.</p>
+      				<h4>Technical Sheet</h4>
+      				<p>Code technologies I got involved with while working on this project:</p>
+      				<ul>
+      					<li>.NET / C#</li>
+	 					<li>MSSql Server</li>
+	 					<li>Java (for API)</li>
+	 					<li>Node</li>
+	 					<li>Angular 1</li>
+      					<li>HTML / CSS</li>
+      				</ul>
+      				<h4>Resources</h4>
+      				<ul>
+      					<li><a href="http://www.glambox.com.br/" target="_blank">Website</a></li>
+      				</ul>
+	    		</div>
+	  		</div>
+		</div>
+
+		<div class="ui modal" id="readers-modal">
+			<i class="close icon"></i>
+			<div class="header">
+	    		Reader Apps
+	  		</div>
+	  		<div class="image content">
+	    		<div class="description">
+	    			<img class="modal-image-header" src="images/oglobo.jpg" alt="O Globo" title="O Globo">
+      				<h4>About</h4>
+      				<p>While working for Digital Pages, I had the pleasure to build reader apps for the most famous magazines and newspaper in Brazil, like Folha de S. Paulo, Caras, Marie Claire, O Globo, Valor Econômico, Glamour, Marie Claire, Casa e Jardim and many more.</p>
+      				<p>Users could make in-app purchases for specific editions, or buy subscriptions for digital versions. Some apps had also interative versions that use the best from HTML5 to improve users experience over the magazine.</p>
+      				<h4>Technical Sheet</h4>
+      				<p>Code technologies I got involved with while working on this project:</p>
+      				<ul>
+      					<li>Objective-C</li>
+	 					<li>MySql</li>
+      				</ul>
+      				<h4>Media</h4>
+      				<img class="media-image" src="images/readers/1.jpg" alt="O Globo" />
+      				<img class="media-image" src="images/readers/2.jpg" alt="O Globo" />
+      				<img class="media-image" src="images/readers/3.jpg" alt="Diário do Nordeste" />
+      				<img class="media-image" src="images/readers/4.png" alt="O Globo" />
+      				<img class="media-image" src="images/readers/5.jpg" alt="Caras" />
+      				<img class="media-image" src="images/readers/6.jpg" alt="Valor Econômico" />
+      				<img class="media-image" src="images/readers/7.jpg" alt="Hoje em Dia" />
+	    		</div>
+	  		</div>
+		</div>
+
+		<div class="ui modal" id="futebol-modal">
+			<i class="close icon"></i>
+			<div class="header">
+	    		Game Futebol
+	  		</div>
+	  		<div class="image content">
+	    		<div class="description">
+	    			<img class="modal-image-header" src="images/gamefutebol.jpg" alt="Game Futebol" title="Game Futebol">
+      				<h4>About</h4>
+      				<p>Game Futebol is an online soccer game, with versions for Android and iOS, that allows to play alone, disputing against the computer, or to challenge other players for a penalty shootout or foul charges. The game counts on the main Brazilian teams, having all of the first division of the national championship and some big teams of the second, like Bahia, Coritiba, Paraná, Sport and Nautical.</p>
+      				<h4>Technical Sheet</h4>
+      				<p>Code technologies I got involved with while working on this project:</p>
+      				<ul>
+      					<li>C#</li>
+	 					<li>Unity</li>
+      				</ul>
+      				<h4>Media</h4>
+      				<img class="media-image" src="images/gamefutebol/1.jpg" alt="Game Futebol" />
+      				<img class="media-image" src="images/gamefutebol/2.jpg" alt="Game Futebol" />
+      				<img class="media-image" src="images/gamefutebol/3.jpg" alt="Game Futebol" />
 	    		</div>
 	  		</div>
 		</div>
