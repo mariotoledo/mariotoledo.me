@@ -241,10 +241,34 @@
   background-color: #f5f5f5!important;
 }
 
+.ui.modal .description {
+  max-width: 610px;
+}
+
+.ui.modal .close.icon {
+  position: relative;
+  color: #000000;
+  margin-top: 10px;
+  float: right;
+  top: 0;
+  right: 0;
+}
+
+.ui.modal .description img.media-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 767px) {
   .slider-wrapper {
     margin-left: -12px;
     width: calc(100% + 24px);
+  }
+
+  .ui.modal .close.icon {
+    position: relative;
+    color: #000000;
+    margin-top: 0px;
   }
 }
 
@@ -281,6 +305,7 @@
 @media only screen and (max-width: 767px) {
   .slider-container {
     overflow-x: scroll;
+    overflow-y: hidden;
   }
 }
 
