@@ -193,13 +193,29 @@
 }
 
 .slider1 .item2 {
-  background:url("../images/esquina64_bg.jpg");
-  background-repeat: repeat;
+  background:url("../images/estacao-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .slider1 .item2 .ui.primary.button, 
 .slider1 .item2 .ui.primary.buttons .button {
   color: #333333;
 }
+
+
+.slider1 .item2-5 {
+  background-color: #b2a378;
+  background:url("../images/gamersario_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.slider1 .item2-5 .ui.primary.button, 
+.slider1 .item2-5 .ui.primary.buttons .button {
+  color: #b2a378;
+}
+
 .slider1 .item3 {
   background:#AB2B2A;
 }
@@ -407,6 +423,11 @@
 
 #estacao64-modal .description .button.enabled {
    background:linear-gradient(315deg, #525156 0%, #232126 100%);
+   color: #FFFFFF;
+}
+
+#gamersario-modal .description .button.enabled {
+   background:#b2a378;
    color: #FFFFFF;
 }
 
