@@ -588,5 +588,11 @@
 .email-container {
   text-align: center;
   font-size: 18px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 767px) {
+  .email-container {
+    margin-bottom: 30px;
+  }  
 }
