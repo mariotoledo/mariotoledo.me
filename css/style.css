@@ -213,7 +213,7 @@
 }
 .slider1 .item2-5 .ui.primary.button, 
 .slider1 .item2-5 .ui.primary.buttons .button {
-  color: #b2a378;
+  color: #E31836;
 }
 
 .slider1 .item3 {
@@ -427,7 +427,7 @@
 }
 
 #gamersario-modal .description .button.enabled {
-   background:#b2a378;
+   background:#E31836;
    color: #FFFFFF;
 }
 
@@ -588,5 +588,21 @@
 .email-container {
   text-align: center;
   font-size: 18px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 767px) {
+  .email-container {
+    margin-bottom: 30px;
+  }  
+}
+
+.gamersario-image {
+  padding: 146px 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  .gamersario-image {
+    padding: 106px 10px;
+  }
 }
