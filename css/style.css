@@ -606,3 +606,11 @@
     padding: 106px 10px;
   }
 }
+
+.ui.list .list>.item .header, .ui.list>.item .works-header {
+  margin-bottom: 15px;
+}
+
+#publishedWorksList .item:not(:first-child) {
+  padding-top: 15px;
+}
