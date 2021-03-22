@@ -158,6 +158,10 @@
   color: #FFF;
 }
 
+.slider-content-black {
+  color: #000000;
+}
+
 .slider-title {
   position: absolute;
   z-index: 50;
@@ -193,10 +197,7 @@
 }
 
 .slider1 .item2 {
-  background:url("../images/estacao-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  background-image: linear-gradient(#E8CF2D, #E59F5A);
 }
 .slider1 .item2 .ui.primary.button, 
 .slider1 .item2 .ui.primary.buttons .button {
@@ -421,9 +422,9 @@
    color: #FFFFFF;
 }
 
-#estacao64-modal .description .button.enabled {
-   background:linear-gradient(315deg, #525156 0%, #232126 100%);
-   color: #FFFFFF;
+#subarashow-modal .description .button.enabled {
+   background:#E8CF2D;
+   color: #000000;
 }
 
 #gamersario-modal .description .button.enabled {
