@@ -491,6 +491,7 @@
   .slider-image img {
     max-width: 400px!important;
     margin: auto;
+    padding: 20px 0px;
   }
 }
 
@@ -596,10 +597,6 @@
   .email-container {
     margin-bottom: 30px;
   }  
-}
-
-.gamersario-image {
-  padding: 146px 15px;
 }
 
 @media only screen and (max-width: 767px) {
