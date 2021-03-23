@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Mario Toledo</title>
+    <title>Blog - Mario Toledo</title>
     <meta name="theme-color" content="#fff" />
     <meta name="author" content="Mario Toledo" />
     <meta name="reply-to" content="mariotoledo12@gmail.com" />
     <meta name="keywords" content="developer, full-stack, fullstack, software, computer, scientist, science, web" />
-    <meta name="description" content="Full Stack Developer, Computer Scientist and Gaming Lover" />
+    <meta name="description"
+        content="Posts about software development, computer science, game development and much more" />
     <meta name="google-site-verification" content="vwj3bJu3eoSb2fQ2f0r_GbXh5OzK15pli3hUCqluARQ" />
     <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
 
@@ -20,8 +21,9 @@
 
     <meta property="og:locale" content="pt-br" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mario Toledo" />
-    <meta property="og:description" content="Full Stack Developer, Computer Scientist and Gaming Lover" />
+    <meta property="og:title" content="Blog - Mario Toledo" />
+    <meta property="og:description"
+        content="Posts about software development, computer science, game development and much more" />
     <meta property="og:url" content="https://mariotoledo.me" />
     <meta property="og:site_name" content="Mario Toledo" />
     <meta property="og:image" content="https://mariotoledo.me/images/bgmario2.jpg" />
@@ -36,8 +38,9 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="https://mariotoledo.me" />
     <meta name="twitter:creator" content="@mario_toledo" />
-    <meta name="twitter:title" content="Mario Toledo" />
-    <meta name="twitter:description" content="Full Stack Developer, Computer Scientist and Gaming Lover" />
+    <meta name="twitter:title" content="Blog - Mario Toledo" />
+    <meta name="twitter:description"
+        content="Posts about software development, computer science, game development and much more" />
     <meta name="twitter:domain" content="Mario Toledo" />
     <meta name="twitter:image" content="https://mariotoledo.me/images/bgmario2.jpg" />
 
@@ -47,126 +50,131 @@
 
     <link rel="stylesheet" type="text/css" href="../semantic/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="blog.css">
 
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../semantic/semantic.min.js"></script>
+
+
+    <style type="text/css">
+
+    </style>
 </head>
 
-<body itemscope itemtype="http://schema.org/Person">
-    <div class="ui container">
-        <nav class="ui inverted grey big stackable menu">
-            <div class="header active item">
-                <!-- this may be your photograph -->
-                <img src="img/logo.png" class="logo" alt="">
-                Mario Toledo
+<body>
+    <div class="ui sidebar inverted vertical menu">
+		<a data-section="home" class="item" href="../index.html#home">Home</a>
+		<a data-section="about" class="item" href="../index.html#about">About Me</a>
+		<a data-section="personal" class="item" href="../index.html#personal">Personal Projects</a>
+		<a data-section="professional" class="item" href="../index.html#professional">Professional</a>
+		<a data-section="academic" class="item" href="../index.html#academic">Academic</a>
+		<a class="item" href="index.html">Blog</a>
+		<a data-section="contact" class="item" href="../index.html#contact">Contact</a>
+	</div>
+
+    <div class="pusher">
+        <div class="ui fixed inverted menu mobile-menu">
+            <div class="ui container">
+                <a class="toc item sidebar-menu-button"><i class="sidebar icon"></i></a>
+                <a href="../index.html" class="header item">
+                    <img class="logo" src="../images/favicon.png">
+                    Mario Toledo
+                </a>
             </div>
-            <div class="item">About me</div>
-            <div class="item">Contact</div>
-            <!-- Search -->
-            <div class="right menu">
+        </div>
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <a href="../index.html" class="header item">
+                    <img class="logo" src="../images/favicon.png">
+                    Mario Toledo
+                </a>
+                <a href="../index.html#home" class="item">Home</a>
+                <a href="../index.html#about" class="item">About Me</a>
+                <a href="../index.html#personal" class="item">Personal Projects</a>
+                <a href="../index.html#professional" class="item">Professional</a>
+                <a href="../index.html#academic" class="item">Academic</a>
+                <a href="blog.html" class="item active">Blog</a>
+                <a href="../index.html#contact" class="item">Contact</a>
+            </div>
+        </div>
+        <div class="ui main text container">
+            <div class="ui divided items">
                 <div class="item">
-                    <div class="ui inverted black icon input">
-                        <i class="search icon"></i>
-                        <input placeholder="Search this blog" type="text">
+                    <div class="image">
+                        <img src="images/noimage.png">
+                    </div>
+                    <div class="content">
+                        <a class="header">What is a "Full Stack Developer"?</a>
+                        <div class="meta">
+                            <span class="cinema">March 22, 2021</span>
+                        </div>
+                        <div class="description">
+                            <p>What is the real definition of "Full Stack Development", what are the requirements to be
+                                one and what are the pros and cons to work in the area.</p>
+                        </div>
+                        <div class="extra">
+                            <div class="ui label">Web Development</div>
+                        </div>
                     </div>
                 </div>
-                <!-- <a class="item">Link</a> -->
+                <div class="item">
+                    <div class="image">
+                        <img src="images/noimage.png">
+                    </div>
+                    <div class="content">
+                        <a class="header">Generating procedural maps using Cellular Automata</a>
+                        <div class="meta">
+                            <span class="cinema">March 15, 2021</span>
+                        </div>
+                        <div class="description">
+                            <p>A Cellular Automata usage to generate a random map in a dungeon crawler game made with
+                                XNA</p>
+                        </div>
+                        <div class="extra">
+                            <div class="ui label">Game Development</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="image">
+                        <img src="images/noimage.png">
+                    </div>
+                    <div class="content">
+                        <a class="header">Welcome to my Blog!</a>
+                        <div class="meta">
+                            <span class="cinema">March 8, 2021</span>
+                        </div>
+                        <div class="description">
+                            <p>This is my first post in my personal blog. Discover what you will find here and my plans
+                                for the next posts.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </div>
 
-        <div class="ui stackable grid">
-            <main class="eleven wide column">
-                <article>
-                    <h1>Tote bag four dollar toast bitters taxidermy prism</h1>
-                    <p>09 October 2018</p>
-                    <p><img class="ui small left floated image" src="img/image.png" alt="">Everyday carry migas
-                        affogato, franzen tumeric aesthetic wolf bespoke man bun health goth banjo whatever quinoa
-                        polaroid. Asymmetrical cornhole whatever tumeric semiotics keffiyeh. Godard freegan chambray
-                        before they sold out health goth offal twee next level pork belly. Portland vexillologist 3 wolf
-                        moon food truck, typewriter man bun synth chia austin. Lumbersexual asymmetrical tote bag
-                        authentic jean shorts wayfarers pop-up brooklyn glossier direct trade hexagon plaid meggings
-                        austin.</p>
-                    <p><a href="article.html">Read more</a> <i class="ui icon arrow right"></i></p>
-                </article>
-                <div class="ui divider"></div>
-
-                <article>
-                    <h1>Everyday carry migas affogato</h1>
-                    <p>09 October 2018</p>
-                    <p><img class="ui small left floated image" src="img/image.png" alt="">Everyday carry migas
-                        affogato, franzen tumeric aesthetic wolf bespoke man bun health goth banjo whatever quinoa
-                        polaroid. Asymmetrical cornhole whatever tumeric semiotics keffiyeh. Godard freegan chambray
-                        before they sold out health goth offal twee next level pork belly. Portland vexillologist 3 wolf
-                        moon food truck, typewriter man bun synth chia austin. Lumbersexual asymmetrical tote bag
-                        authentic jean shorts wayfarers pop-up brooklyn glossier direct trade hexagon plaid meggings
-                        austin.</p>
-                    <p><a href="article">Read more</a> <i class="ui icon arrow right"></i></p>
-                </article>
-                <div class="ui divider"></div>
-                <!-- Pagination -->
-                <div class="ui pagination menu">
-                    <a class="active item">
-                        1
-                    </a>
-                    <div class="disabled item">
-                        ...
-                    </div>
-                    <a class="item">
-                        10
-                    </a>
-                    <a class="item">
-                        11
-                    </a>
-                    <a class="item">
-                        12
-                    </a>
+        <div class="ui inverted vertical footer segment">
+            <div class="ui center aligned container">
+                <img src="../images/favicon.png" class="ui centered mini image">
+                <div class="ui horizontal inverted small divided link list">
+                    <a data-section="home" class="item" href="../index.html#home">Home</a>
+                    <a data-section="about" class="item" href="../index.html#about">About Me</a>
+                    <a data-section="personal" class="item" href="../index.html#personal">Personal Projects</a>
+                    <a data-section="professional" class="item" href="../index.html#professional">Professional</a>
+                    <a data-section="academic" class="item" href="../index.html#academic">Academic</a>
+                    <a class="item" href="index.html">Blog</a>
+                    <a data-section="contact" class="item" href="../index.html#contact">Contact</a>
                 </div>
-            </main>
-            <aside class="five wide column">
-                <h4>CATEGORIES</h4>
-                <p><a href="#">JavaScript</a></p>
-                <p><a href="#">HTML/CSS</a></p>
-                <p><a href="#">React.js</a></p>
-                <p><a href="#">Redux</a></p>
-                <p><a href="#">Other</a></p>
-                <div class="ui divider"></div>
-                <h4>TAGS</h4>
-                <div class="tagcloud">
-                    <div class="ui label"><a href="#">javascript</a></div>
-                    <div class="ui label"><a href="#">html</a></div>
-                    <div class="ui label"><a href="#">css</a></div>
-                    <div class="ui label"><a href="#">react</a></div>
-                    <div class="ui label"><a href="#">xampp</a></div>
-                    <div class="ui label"><a href="#">wordpress</a></div>
-                    <div class="ui label"><a href="#">design</a></div>
-                    <div class="ui label"><a href="#">personal</a></div>
-                    <div class="ui label"><a href="#">productivity</a></div>
-                </div>
-                <h4>BLOGROLL</h4>
-                <p><a href="#">Interesting Blog</a></p>
-                <p><a href="#">Another Blog</a></p>
-                <p><a href="#">Yet Another Interesting Blog</a></p>
-                <div class="ui divider"></div>
-            </aside>
+            </div>
         </div>
     </div>
-
-    <footer class="ui container">
-        <!-- Social -->
-        <div class="social">
-            <a class="ui facebook button" href="#"><i class="facebook icon"></i>Facebook</a>
-            <a class="ui linkedin button" href="#"><i class="linkedin icon"></i>LinkedIn</a>
-            <a class="ui youtube button" href="#"><i class="youtube icon"></i>YouTube</a>
-            <a class="ui instagram button" href="#"><i class="instagram icon"></i>Instagram</a>
-            <a class="ui vk button" href="#"><i class="vk icon"></i>VK</a>
-            <!-- 09 Oct 2018 R.I.P. Google Plus :-P -->
-            <!-- <a class="ui google plus button" href="#"><i class="google plus icon"></i>Google Plus</a> -->
-        </div>
-        <div class="copyright">
-            Free html personal blog theme by <i class="ui icon github"></i><a
-                href="https://github.com/shawooha">shawooha</a>
-        </div>
-    </footer>
+    <script type="text/javascript">
+		$(document).ready(function () {
+			$('.sidebar-menu-button').click(function () {
+				$('.ui.sidebar').sidebar('toggle');
+			});
+        });
+    </script>
 </body>
 
 </html>

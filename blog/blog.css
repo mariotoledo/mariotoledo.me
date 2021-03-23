@@ -1,0 +1,43 @@
+body {
+    background-color: #FFFFFF;
+}
+
+.ui.menu .item img.logo {
+    margin: -.7em 0;
+    margin-right: 1em;
+}
+
+.main.container {
+    margin-top: 7em;
+}
+
+.wireframe {
+    margin-top: 2em;
+}
+
+.ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+}
+
+.ui.divided.items>.item {
+    padding: 2em 0;
+}
+
+.ui.fixed.mobile-menu {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .ui.fixed.mobile-menu {
+        display: block!important;
+    }
+}
+
+.sidebar-menu-button {
+    position: absolute!important;
+}
+
+.ui.inverted.menu .header.item {
+    margin: auto;
+}
