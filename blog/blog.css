@@ -8,7 +8,7 @@ body {
 }
 
 .main.container {
-    margin-top: 7em;
+    margin-top: 5em;
 }
 
 .wireframe {
@@ -40,4 +40,9 @@ body {
 
 .ui.inverted.menu .header.item {
     margin: auto;
+}
+
+
+.header:before {
+    width: 0px!important;
 }
