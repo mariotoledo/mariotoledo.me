@@ -46,3 +46,72 @@ body {
 .header:before {
     width: 0px!important;
 }
+
+.masthead {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 0em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0px;
+    border-bottom: none;
+    background-color: #000000;
+    background-position: 50% 50%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.masthead .container {
+    height: 55vh;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    min-height: 600px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.introduction {
+    position: relative;
+    clear: both;
+    display: block;
+    text-align: center;
+}
+
+.masthead.segment h1 {
+    font-size: 3em;
+    color: rgba(255, 255, 255, 1);
+    line-height: 1.2;
+    margin: 0px 0px 0px;
+    padding-bottom: 0px;
+    -moz-perspective: 500px;
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    text-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.masthead.segment h1 > .library {
+    display: block;
+    font-size: 1.75em;
+    font-weight: bold;
+}
+
+.masthead.segment h1 .tagline {
+    font-size: 0.75em;
+}
+
+#disqus_thread {
+    margin-top: 3em;
+}
