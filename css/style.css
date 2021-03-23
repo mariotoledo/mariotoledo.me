@@ -612,3 +612,11 @@
 #publishedWorksList .item:not(:first-child) {
   padding-top: 15px;
 }
+
+.mario-menu {
+  margin-top: 10px;
+}
+
+.mario-menu .ui.secondary.pointing.menu {
+  border: 0;
+}
