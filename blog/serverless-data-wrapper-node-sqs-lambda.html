@@ -253,7 +253,7 @@ npm install request</code></pre>
         handler: handler.hello
         environment:
             RAWG_API_KEY: xxxxxxx</code></pre>
-            <p>On <i>handler.js</i> file, import the request package, and, inside the execution function, add the code to make a request to the api, adding the API key as a parameter. A good thing to notice is that AWS Lambda can deal with promises as a return value, so it should be good to return a promise, handling the request result inside it.</p>
+            <p>On <i>handler.js</i> file, import the request package, and, inside the execution function, add the code to make a request to the API, adding the API key as a parameter. A good thing to notice is that AWS Lambda can deal with promises as a return value, so it should be good to return a promise, handling the request result inside it.</p>
             <pre><code>'use strict';
 const request = require('request');
 
@@ -270,6 +270,77 @@ module.exports.hello = async (event) => {
     });
 };</code></pre>
             <p>Deploy and test it. You should receive the API response as result.</p>
+
+            <h2>Queue configuration</h2>
+            <p>Now that we have our function making requests to the API, we should deal how we are going to navigate through pages to fetch all available data. As defined before, we need to create a queue that will store messages to execute the function with the <i>page</i> parameter. Everytime our function makes a request, it will check if there is more data available. If so, it should send a message to our queue, with the page incremented by one.</p>
+            <p>Our first step is to create the queue on AWS SQS. Using either the web interface or AWS CLI, create a queue that uses the FIFO settings. Don't forget to include <i>.fifo</i> in the end of the name (that's a requirement for FIFO queues on AWS).</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/fifo.jpg" alt="Queue creation" style="width: 100%; margin-bottom: 1em" />
+            <p>Also, it should be good to set the interval between message dequeue here. ON <i>Delivery delay</i> field, add the desired amount of time you want (1 minute should be enough). All other settings should be left as default.</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/deliverydelay.jpg" alt="Change the delivery delay to the desired amount of time" style="width: 100%; margin-bottom: 1em" />
+            <p>After the queue is created, click on it, and open the <i>Lambda triggers</i> tab. Then, click on <i>Configure Lambda function trigger</i> button. Select your lambda function on the dropdown, and click on save.</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/queuelambda.jpg" alt="Select the desired lambda function to be executed" style="width: 100%; margin-bottom: 1em" />
+            <p>The next step is to modify our worker to receive the page parameter and send messages to the queue when there is more data to fetch. To do that, we first need to install the <i>AWS SDK</i> package from npm, and import its reference on <i>handler.js</i> file.</p>
+            <pre><code>npm install aws-sdk</code></pre>
+            <pre><code>const AWS = require('aws-sdk');</code></pre>
+            <p>First, we need to receive the <i>page</i> parameter from the message. SQS store message data into an array named <i>Records</i> from the received event. In our case, we will also be sending messages in a JSON format, so it is important to parse it. Also, parsing strings into JSON can throw errors on Javascript, so it is always good to add a <i>try catch</i> block. In our case, if there is any error, we will return the page 1, as it is the first page to make the request to the API.</p>
+            <p>Create a function that receives the message event, and try to parse the message (if it exists).</p>
+            <pre><code>function tryParsePage(event) {
+    if(event && 
+    event.Records && 
+    event.Records.length > 0 && 
+    event.Records[0].body) {
+        try{
+            let parsedMessage = JSON.parse(event.Records[0].body);
+            if(parsedMessage && parsedMessage.page) {
+                return '' + parsedMessage.page;
+            }
+
+            return '1';
+        } catch (e) {return '1';}        
+    }
+}</code></pre>
+            <p>Now we should handle the message submission to AWS SQS. First, we need to copy the queue URL from AWS (located on the queue details), and store it on the environment variables from <i>serverless.yml</i>. Also, it should be good to add another parameter named <i>message group</i> as well, with any desired string (in lowercase).</p>
+            <pre><code>environment:
+    RAWG_API_KEY: xxxxxxx
+    AWS_QUEUE_URL: xxxxxxx
+    AWS_MESSAGE_GROUP: xxxxxxx</code></pre>
+            <p>Then, create a function that sends new messages to the queue, receiving the page as parameter. To send a message to the queue, we just need to use <i>AWS.SQS</i> from the AWS SDK, and call the <i>sendMessage</i> method, passing an object with 4 parameters: <i>MessageBody</i>, <i>QueueUrl</i>, <i>MessageGroupId</i> and <i>MessageDeduplicationId</i>. Both <i>MessageGroupId</i> and <i>MessageDeduplicationId</i> should be unique, so we are using a concatenation of message group id and page.</p>
+            <pre><code>function sendMessage(page) {
+    const sqs = new AWS.SQS();
+
+    return sqs.sendMessage({
+        MessageBody: JSON.stringify({page: parseInt(page) + 1}),
+        QueueUrl: `${process.env.AWS_QUEUE_URL}`,
+        MessageGroupId: `${process.env.AWS_MESSAGE_GROUP}_${page}`,
+        MessageDeduplicationId: `${process.env.AWS_MESSAGE_GROUP}_${page}`
+    }).promise();
+}</code></pre>
+            <p>Finally, call this functions inside the lambda execution function. Add the page parameter to the API URL, and, after the request execution, parse the body response to check if there is a <i>next</i> URL. If so, we should send a new message to the queue.</p>
+            <pre><code>module.exports.hello = async (event) => {
+    return new Promise((resolve, reject) => {
+        let page = tryParsePage(event);    
+
+        request(`https://api.rawg.io/api/games?key=${process.env.RAWG_API_KEY}&ordering=-updated&page=${page}&page_size=100`, function(error, response, body) {
+            if(error) {
+                reject(error);
+                return;
+            }
+
+            let parsedResponse = JSON.parse(body);
+            let games = parsedResponse.results;
+
+            if(parsedResponse.next) {
+                sendMessage(page).then(() => {
+                    resolve();
+                }).catch(err => {
+                    reject(err);
+                });        
+            } else {
+                resolve();
+            }      
+        });
+    });
+};</code></pre>
             <!-- references -->
             <h2>References</h2>
             <p>[1] <a href="https://www.ibm.com/topics/api" target="_blank">https://www.ibm.com/topics/api</a></p>
