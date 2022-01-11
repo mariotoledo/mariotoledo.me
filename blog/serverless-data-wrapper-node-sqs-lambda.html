@@ -131,13 +131,13 @@
                 <div class="active section">Serverless Data Wrapper with Node + SQS + Lambda</div>
             </div>
             <p>
-                Anyone that have worked with data from external APIs may have faced some limitations, such as request limit, server overload, connection problems and many other errors that may appear. The solution might be simple: <b>a worker or cron that fetches data from time to time and updates on a local database</b>.
+                Anyone that have worked with data from external APIs may have faced some limitations, such as request limit, server overload, connection problems and many other errors that may appear. The solution might be simple: <b>a worker that fetches data from time to time and updates on a local database</b>.
             </p>
             <p>
                 As much as this is a quite common solution for this situation, there are many things that we have to worry when building this kind of worker: memory consumption, server infrastructure and, most importantly, scalability. As much simple a worker that fetches data from an API can be, there are many edge cases where a bad architecture can fall in.
             </p>
             <p>
-                Recently, I have had (once again) the necessity of creating a worker to fetch data from an API. But, this time, I decided to spend time working on a good way to create this project. After some research, and many experiments, I have reached to an reasonable achitecture. My solution for this problem uses a <b>serveless Node JS</b> application, applied to an <b>AWS Lambda Function</b>, runned every week, storing execution messages into an <b>AWS SQS</b>. Also, all data is stored into a <b>MongoDB Database</b>, created into a Digital Ocean instance (lowest MongoDB instance price I have found).
+                Recently, I have had (once again) the necessity of creating a worker to fetch data from an API. But, this time, I decided to spend some time working on a good way to create this project. After some research, and many experiments, I have reached to a reasonable achitecture. My solution for this problem uses a <b>serveless Node JS</b> application, applied to an <b>AWS Lambda Function</b>, executed every week, storing execution messages into an <b>AWS SQS</b>. Also, all data is stored into a <b>MongoDB Database</b>, created on a Digital Ocean instance (lowest MongoDB instance price I have found).
             </p>
             <p>
                 This post shows the definition of the problem, following the proposal of my solution, and the step by step to create the solution itself. Also, I will explain some definitions that may help anyone that never worked with any of these technologies.
@@ -145,7 +145,7 @@
             <hr/>
             <h2>Problem Definition</h2>
             <p>
-                Suppose the case that you need to create an application that contains data of all video-games available. Users are going to navigate in your application, searching for video-game, starring the ones that they have, and adding their review. If you don't have these data into your database, the most common solution is searching for some API that contains the data that you need.
+                Suppose the case that you need to create an application that contains data of all video-games available. Users are going to navigate in your application, searching for video-games, starring the ones that they have, and adding their review. If you don't have these data in your database, the most common solution is searching for some API that contains the data that you need.
             </p>
             <div class="ui styled accordion" style="margin-bottom: 1em;">
                 <div class="title">
@@ -214,15 +214,13 @@
 
             <h2>Project Initialization</h2>
             <p>The following sections includes the step by step to implement the proposed architecture. For this implementation, the <a href="https://rawg.io/apidocs" target="_blank">RAWG</a>`s API was chosen as it seems to be the best gaming API available. It has 500.000+ games, and many cool data for usage. As their authentication is simple, we just need an API Key, available after registering an user on their website and providing info about the application you are going to build.</p>
-            <p>The worker can be developed into any desired language. In this case, we are going to use Node JS, so create a folder for your application, and initialize the npm project:</p>
-            <pre><code>npm init</code></pre>
-            <p>A cool thing about Node is that, as many other frameworks that contains a package manager, is that you can find a lot of useful packages that improves development. A cool package that will help us in this project is named <a href="https://www.npmjs.com/package/serverless" target="_blank">serverless</a>, which creates Lambda Functions automatically by using YAML syntax. It is pretty much convinient to deploy our code with a single line command.</p>
+            <p>The worker can be developed into any desired language. In this case, we are going to use Node JS. A cool thing about Node is that, as many other frameworks that contains a package manager, you can find a lot of useful packages that improves development time. A cool package that will help us in this project is named <a href="https://www.npmjs.com/package/serverless" target="_blank">serverless</a>, which creates Lambda Functions automatically by using YAML syntax. It is pretty much convenient to deploy our code with a single command line.</p>
             <pre><code>npm install -g serverless</code></pre>
-            <p>Before using the <i>serverless</i> command, don't forget to set up the <a href="https://aws.amazon.com/pt/cli/">AWS CLI</a> on your local machine. It will allow to use AWS commands for quick set up of your environment. Also, make sure you have configured your AWS Access Keys locally (this <a href="https://www.serverless.com/framework/docs/providers/aws/guide/credentials/">guide</a> will help you with this). Then, you can use the <i>serverless</i> command to create a boilerplate project.</p>
+            <p>Before using the <i>serverless</i> command, don't forget to set up the <a href="https://aws.amazon.com/pt/cli/">AWS CLI</a> on your local machine. It will allow you to use AWS commands for quick set up of your environment. Also, make sure you have configured your AWS Access Keys locally (this <a href="https://www.serverless.com/framework/docs/providers/aws/guide/credentials/">guide</a> will help you with this). Then, you can use the <i>serverless</i> command to create a boilerplate project.</p>
             <pre><code>serverless</code></pre>
             <p>Fill in all required info, and check if the project is created correctly.</p>
             <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/serverlesssettings.jpg" alt="Serverless Settings" style="width: 100%; margin-bottom: 1em" />
-            <p>Before deploying the code, make sure you have everything configure correctly on <i>serverless.yml</i>. Also, make sure to check if the <i>region</i> parameter is added, and has the desired region.</p>
+            <p>Before deploying the code, make sure you have everything configured correctly on <i>serverless.yml</i>. Also, make sure to check if the <i>region</i> parameter is added, and has the desired region.</p>
             <pre><code>service: teste
 
 frameworkVersion: '2 || 3'
@@ -243,7 +241,7 @@ functions:
             <p>It is always good to test the function and see if its working. AWS Lambda interface provides a way to test the function using the orange Test button. Create a test event, and then click on the Test button again. You should receive a response displaying the execution results.</p>
             <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/executionresults.jpg" alt="Execution results" style="width: 100%; margin-bottom: 1em" />
 
-            <h2>Making the API request</h2>
+            <h2>Making the API Request</h2>
             <p>Back to the worker, the first thing we need to code is the request to the RAWG API. To do that, we are going to use the <a href="https://www.npmjs.com/package/request" target="_blank">request</a> package from npm. We also need to initialize npm on our project before installing the request package.</p>
             <pre><code>npm init
 npm install request</code></pre>
@@ -271,7 +269,7 @@ module.exports.hello = async (event) => {
 };</code></pre>
             <p>Deploy and test it. You should receive the API response as result.</p>
 
-            <h2>Queue configuration</h2>
+            <h2>Queue Configuration</h2>
             <p>Now that we have our function making requests to the API, we should deal how we are going to navigate through pages to fetch all available data. As defined before, we need to create a queue that will store messages to execute the function with the <i>page</i> parameter. Everytime our function makes a request, it will check if there is more data available. If so, it should send a message to our queue, with the page incremented by one.</p>
             <p>Our first step is to create the queue on AWS SQS. Using either the web interface or AWS CLI, create a queue that uses the FIFO settings. Don't forget to include <i>.fifo</i> in the end of the name (that's a requirement for FIFO queues on AWS).</p>
             <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/fifo.jpg" alt="Queue creation" style="width: 100%; margin-bottom: 1em" />
@@ -315,7 +313,7 @@ module.exports.hello = async (event) => {
         MessageDeduplicationId: `${process.env.AWS_MESSAGE_GROUP}_${page}`
     }).promise();
 }</code></pre>
-            <p>Finally, call this functions inside the lambda execution function. Add the page parameter to the API URL, and, after the request execution, parse the body response to check if there is a <i>next</i> URL. If so, we should send a new message to the queue.</p>
+            <p>Finally, call this methods inside the lambda execution function. Add the page parameter to the API URL, and, after the request execution, parse the body response to check if there is a <i>next</i> URL. If so, we should send a new message to the queue.</p>
             <pre><code>module.exports.hello = async (event) => {
     return new Promise((resolve, reject) => {
         let page = tryParsePage(event);    
@@ -341,6 +339,24 @@ module.exports.hello = async (event) => {
         });
     });
 };</code></pre>
+            <p>Before deploying, it is a good thing to add some logs for testing purposes. During the execution of the function, you won't be able to see the results from the function, but you can always count with Amazon CloudWatch to check for the logs. Any <i>console.log</i> added to the code will print an entry on the CloudWatch logs when the function is executed.</p>
+            <p>Now you can deploy and test to see if the application works as expected. A good way to test is to send a message to the queue from the AWS interface. Just enter on the desired queue, and click on "Send new message". Then, enter the message body, and wait to see if the logs appears on CloudWatch.</p>
+
+            <h2>Database Connection</h2>
+            <p>Now that we have our main flow working, it is time to start to add the data to your project database. It is not the focus of this post to teach how to configure a database on your project (once it is equal to any other web project you may have made), but I will share how I managed to work with the database, and some of the problems I have faced.</p>
+            <p>Firstly, I decided to use MongoDB just for personal taste. Node has great packages that allows to manage a MongoDB connection, but the one that I like most is <a href="https://www.npmjs.com/package/mongoose" target="_blank"><i>mongoose</i></a>. Is allows working with promises, and contains many helpful things like schema, validators, middlewares and more.</p>
+            <p>Also, I created my DB on Digital Ocean. It is the cheapest DB with the minimum required I had that I have found. For U$ 15/mo, you can have a dedicated cluster with 1 Gb space, and a good security configuration. Of course that you can always create your own Cloud instance and install MongoDB, but I would really recommend to use a previous configured instance (unless you are the master of devops).</p>
+            <p>The thing is that I had a lot of problems to connect with this database due all security settings my DB instance had. The first problem is the IP whitelist, allowing only the specified IPs to connect to that database. You need to associate a static IP to Lambda so you can whitelist this IP to the Db. To do it, there is this <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/generate-a-static-outbound-ip-address-using-a-lambda-function-amazon-vpc-and-a-serverless-architecture.html" target="_blank">excelent guide</a> that will help you to configure (and I strongly recommend doing it).</p>
+            <p>You will also need to send your database certificate to connect to the DB. If you are using mongoose, put the certificate file in the root of the project, and use the following options on <i>connect</i> method:</p>
+            <pre><code>{
+    ssl: true,
+    sslValidate: true,
+    sslCA: __dirname + "/cert.pem"
+}</code></pre>
+            <p>Once you are connected, you can use the <i>upsert</i> method to insert or update the entry in your database.</p>
+
+            <hr/>
+            <p>There are many small improvements we can apply to this worker, such as retrieving only the updated games (filtered by updated parameter on the query string), or working with two different databases (one only to insert and another only for retrieval). But if you have any suggestion, or wants to share a different approach, fell free to comment below!</p>
             <!-- references -->
             <h2>References</h2>
             <p>[1] <a href="https://www.ibm.com/topics/api" target="_blank">https://www.ibm.com/topics/api</a></p>
