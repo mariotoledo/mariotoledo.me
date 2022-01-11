@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Serverless Data Wrapper with Node + SQS + Lambda  - Mario Toledo</title>
+    <meta name="theme-color" content="#fff" />
+    <meta name="author" content="Mario Toledo" />
+    <meta name="reply-to" content="contact@mariotoledo.me" />
+    <meta name="keywords" content="javascript, data, wrapper, node, sqs, aws, lambda" />
+    <meta name="description" content="A data wrapper project made with Node JS and SQS + Lambda from AWS." />
+    <meta name="google-site-verification" content="vwj3bJu3eoSb2fQ2f0r_GbXh5OzK15pli3hUCqluARQ" />
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+
+    <!-- =================================== -->
+    <!-- 			 FACEBOOK 				 -->
+    <!-- =================================== -->
+
+    <meta property="og:locale" content="pt-br" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Serverless Data Wrapper with Node + SQS + Lambda  - Mario Toledo" />
+    <meta property="og:description" content="A data wrapper project made with Node JS and SQS + Lambda from AWS." />
+    <meta property="og:url" content="http://mariotoledo.me/blog/serverless-data-wrapper-node-sqs-lambda.html" />
+    <meta property="og:site_name" content="Mario Toledo" />
+    <meta property="og:image" content="https://mariotoledo.me/blog/images/serverless-data-wrapper-node-sqs-lambda-cover.jpg" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+
+    <!-- =================================== -->
+    <!-- 			  TWITTER 				 -->
+    <!-- =================================== -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://mariotoledo.me" />
+    <meta name="twitter:creator" content="@mario_toledo" />
+    <meta name="twitter:title" content="Serverless Data Wrapper with Node + SQS + Lambda  - Mario Toledo" />
+    <meta name="twitter:description" content="A data wrapper project made with Node JS and SQS + Lambda from AWS" />
+    <meta name="twitter:domain" content="Mario Toledo" />
+    <meta name="twitter:image" content="https://mariotoledo.me/blog/images/serverless-data-wrapper-node-sqs-lambda-cover.jpg" />
+
+    <!-- =================================== -->
+    <!-- 			  STYLE 				 -->
+    <!-- =================================== -->
+
+    <link rel="stylesheet" type="text/css" href="../semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="blog.css">
+    <link rel="stylesheet" type="text/css" href="blog-post.css">
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../semantic/semantic.min.js"></script>
+
+    <style>
+        .masthead:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .4;
+            z-index: -1;
+            background: url(images/serverless-data-wrapper-node-sqs-lambda-cover.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui sidebar inverted vertical menu">
+        <a data-section="home" class="item" href="../index.html#home">Home</a>
+        <a data-section="about" class="item" href="../index.html#about">About Me</a>
+        <a data-section="personal" class="item" href="../index.html#personal">Personal Projects</a>
+        <a data-section="professional" class="item" href="../index.html#professional">Professional</a>
+        <a data-section="academic" class="item" href="../index.html#academic">Academic</a>
+        <a class="item" href="index.html">Blog</a>
+        <a data-section="contact" class="item" href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="pusher">
+        <div class="ui fixed inverted menu mobile-menu">
+            <div class="ui container">
+                <a class="toc item sidebar-menu-button"><i class="sidebar icon"></i></a>
+                <a href="../index.html" class="header item">
+                    <img class="logo" src="../images/favicon.png">
+                    Mario Toledo
+                </a>
+            </div>
+        </div>
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <a href="../index.html" class="header item">
+                    <img class="logo" src="../images/favicon.png">
+                    Mario Toledo
+                </a>
+                <a href="../index.html#home" class="item">Home</a>
+                <a href="../index.html#about" class="item">About Me</a>
+                <a href="../index.html#personal" class="item">Personal Projects</a>
+                <a href="../index.html#professional" class="item">Professional</a>
+                <a href="../index.html#academic" class="item">Academic</a>
+                <a href="index.html" class="item active">Blog</a>
+                <a href="../index.html#contact" class="item">Contact</a>
+            </div>
+        </div>
+
+        <div class="masthead segment">
+            <div class="ui container">
+                <div class="introduction">
+                    <div class="ui black version label">
+                        January 05, 2022
+                    </div>
+                    <h1 class="ui inverted header">
+                        <span class="library">
+                            Serverless Data Wrapper with Node + SQS + Lambda
+                        </span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="ui text container">
+            <div class="ui breadcrumb">
+                <a href="../index.html" class="section">Home</a>
+                <i class="right angle icon divider"></i>
+                <a href="index.html" class="section">Blog</a>
+                <i class="right angle icon divider"></i>
+                <div class="active section">Serverless Data Wrapper with Node + SQS + Lambda</div>
+            </div>
+            <p>
+                Anyone that have worked with data from external APIs may have faced some limitations, such as request limit, server overload, connection problems and many other errors that may appear. The solution might be simple: <b>a worker or cron that fetches data from time to time and updates on a local database</b>.
+            </p>
+            <p>
+                As much as this is a quite common solution for this situation, there are many things that we have to worry when building this kind of worker: memory consumption, server infrastructure and, most importantly, scalability. As much simple a worker that fetches data from an API can be, there are many edge cases where a bad architecture can fall in.
+            </p>
+            <p>
+                Recently, I have had (once again) the necessity of creating a worker to fetch data from an API. But, this time, I decided to spend time working on a good way to create this project. After some research, and many experiments, I have reached to an reasonable achitecture. My solution for this problem uses a <b>serveless Node JS</b> application, applied to an <b>AWS Lambda Function</b>, runned every week, storing execution messages into an <b>AWS SQS</b>. Also, all data is stored into a <b>MongoDB Database</b>, created into a Digital Ocean instance (lowest MongoDB instance price I have found).
+            </p>
+            <p>
+                This post shows the definition of the problem, following the proposal of my solution, and the step by step to create the solution itself. Also, I will explain some definitions that may help anyone that never worked with any of these technologies.
+            </p>
+            <hr/>
+            <h2>Problem Definition</h2>
+            <p>
+                Suppose the case that you need to create an application that contains data of all video-games available. Users are going to navigate in your application, searching for video-game, starring the ones that they have, and adding their review. If you don't have these data into your database, the most common solution is searching for some API that contains the data that you need.
+            </p>
+            <div class="ui styled accordion" style="margin-bottom: 1em;">
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  What is an API?
+                </div>
+                <div class="content">
+                  <p class="transition hidden">
+                    Application Programming Interfaces, or APIs, allows applications to exchange data and functionality easily through an interface. Basically, web applications that contains an API provides a way to users retrieve data or execute some actions through specific rules. During the exchange, HTTP headers, cookies, or query string parameters provide additional security layers to the data. [1]
+                  </p>
+                </div>
+            </div>
+            <p>
+                Many APIs limits the usage of request by user. This means that you can only make an specific number of requests in an specific amount of time (10 requests per second, for example). If you apply API calls directly from your application (for example, any time a user searches for a game), specially in a large scale application, you will receive a lot of failed requests. Also, you may find the problem where the API is unavailable by any reasons, making your own application unavailable too.
+            </p>
+            <p>
+                So, what if instead of applying the API request directly from our application, we create a background application that makes requests to retrieve data from time to time, and store into our application database? This would allow us to use the data directly from the database, and would solve the problem of having <i>n</i> requests to <i>constant</i> requests. In these situations, we usually use the <i>Master-Worker Pattern</i> (or just worker), allowing us to process data in parallel.
+            </p>
+            <div class="ui styled accordion" style="margin-bottom: 1em;">
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  What is the Worker pattern?
+                </div>
+                <div class="content">
+                  <p class="transition hidden">
+                    The Master-Worker Pattern (sometimes called the Master-Slave or the Map-Reduce pattern) is used for parallel processing. It follows a simple approach that allows applications to perform simultaneous processing across multiple machines or processes via a Master and multiple Workers. [2]<br/>
+                    <br/>
+                    <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/the_master_worker.jpg" style="width: 100%;"/>
+                  </p>
+                </div>
+            </div>
+            <p>
+                The thing about workers is that, usually, they are created in the same application. This creates a problem where we need to worry about memory consumption and runtime errors. The solution for that may be simple as creating an external infrastructure to run this single worker, but having a single server to run an application that is executed on specific times may be expensive (and really unnecessary).
+            </p>
+            <h2>Solution Proposal</h2>
+            <p>
+                Considering all requirements and limitations, my proposal for this situation goes for a <b>serverless application</b>, as a lambda function, that is executed from time to time, fetching data from the API and storing into our project database. This would allow us to avoid worrying about errors in the same infrastructure, and still have our application running in parallel.
+            </p>
+            <div class="ui styled accordion" style="margin-bottom: 1em;">
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  What is serverless?
+                </div>
+                <div class="content">
+                  <p class="transition hidden">
+                    Serverless computing (or serverless for short), is an execution model where the cloud provider (AWS, Azure, or Google Cloud) is responsible for executing a piece of code by dynamically allocating the resources. And only charging for the amount of resources used to run the code. The code is typically run inside stateless containers that can be triggered by a variety of events including http requests, database events, queuing services, monitoring alerts, file uploads, scheduled events (cron jobs), etc. The code that is sent to the cloud provider for execution is usually in the form of a function. [3]
+                  </p>
+                </div>
+            </div>
+            <p>
+                This lambda function can be executed from time to time, specified in a cron expression. Also, most of APIs uses pagination to avoid larger requests. To allow us to make requests based on pagination, and keep the requests per time ratio, my proposal also includes the usage of a <b>queue</b>, storing messages with the page parameter. We can configure to dequeue each message at the amount of time we need to wait for the next request. 
+            </p>
+            <div class="ui styled accordion" style="margin-bottom: 1em;">
+                <div class="title">
+                  <i class="dropdown icon"></i>
+                  What is a queue?
+                </div>
+                <div class="content">
+                  <p class="transition hidden">
+                    A message queue is a form of asynchronous service-to-service communication used in serverless and microservices architectures. Messages are stored on the queue until they are processed and deleted. Each message is processed only once, by a single consumer. Message queues can be used to decouple heavyweight processing, to buffer or batch work, and to smooth spiky workloads. [4]
+                  </p>
+                </div>
+            </div>
+            <p>The following image shows a larger view of this architecture proposal:</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/worker-achitecture.png" alt="Worker Architecture" style="width: 100%;" />
+
+            <h2>Project Initialization</h2>
+            <p>The following sections includes the step by step to implement the proposed architecture. For this implementation, the <a href="https://rawg.io/apidocs" target="_blank">RAWG</a>`s API was chosen as it seems to be the best gaming API available. It has 500.000+ games, and many cool data for usage. As their authentication is simple, we just need an API Key, available after registering an user on their website and providing info about the application you are going to build.</p>
+            <p>The worker can be developed into any desired language. In this case, we are going to use Node JS, so create a folder for your application, and initialize the npm project:</p>
+            <pre><code>npm init</code></pre>
+            <p>A cool thing about Node is that, as many other frameworks that contains a package manager, is that you can find a lot of useful packages that improves development. A cool package that will help us in this project is named <a href="https://www.npmjs.com/package/serverless" target="_blank">serverless</a>, which creates Lambda Functions automatically by using YAML syntax. It is pretty much convinient to deploy our code with a single line command.</p>
+            <pre><code>npm install -g serverless</code></pre>
+            <p>Before using the <i>serverless</i> command, don't forget to set up the <a href="https://aws.amazon.com/pt/cli/">AWS CLI</a> on your local machine. It will allow to use AWS commands for quick set up of your environment. Also, make sure you have configured your AWS Access Keys locally (this <a href="https://www.serverless.com/framework/docs/providers/aws/guide/credentials/">guide</a> will help you with this). Then, you can use the <i>serverless</i> command to create a boilerplate project.</p>
+            <pre><code>serverless</code></pre>
+            <p>Fill in all required info, and check if the project is created correctly.</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/serverlesssettings.jpg" alt="Serverless Settings" style="width: 100%; margin-bottom: 1em" />
+            <p>Before deploying the code, make sure you have everything configure correctly on <i>serverless.yml</i>. Also, make sure to check if the <i>region</i> parameter is added, and has the desired region.</p>
+            <pre><code>service: teste
+
+frameworkVersion: '2 || 3'
+
+provider:
+    name: aws
+    runtime: nodejs12.x
+    lambdaHashingVersion: 20201221
+    region: sa-east-1
+
+functions:
+    hello:
+    handler: handler.hello</code></pre>
+            <p>To deploy the application, use the <i>serverless deploy</i> command.</p>
+            <pre><code>serverless deploy</code></pre>
+            <p>If everything went fine, you will be able to see your function created on AWS inteface (or using the <i>aws lambda list-functions</i> if you have the AWS CLI instaled).</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/functioncreated.jpg" alt="Function should appear created in AWS interface" style="width: 100%; margin-bottom: 1em" />
+            <p>It is always good to test the function and see if its working. AWS Lambda interface provides a way to test the function using the orange Test button. Create a test event, and then click on the Test button again. You should receive a response displaying the execution results.</p>
+            <img src="https://mariotoledo-blog-images.s3.sa-east-1.amazonaws.com/executionresults.jpg" alt="Execution results" style="width: 100%; margin-bottom: 1em" />
+
+            <h2>Making the API request</h2>
+            <p>Back to the worker, the first thing we need to code is the request to the RAWG API. To do that, we are going to use the <a href="https://www.npmjs.com/package/request" target="_blank">request</a> package from npm. We also need to initialize npm on our project before installing the request package.</p>
+            <pre><code>npm init
+npm install request</code></pre>
+            <p>Also, we are going to need the RAWG API key. It is always good to store this information on environment variables, and serverless allows to create these variables directly on <i>serverless.yml</i> file, inside the <i>function</i> structure.</p>
+            <pre><code>functions:
+    hello:
+        handler: handler.hello
+        environment:
+            RAWG_API_KEY: xxxxxxx</code></pre>
+            <p>On <i>handler.js</i> file, import the request package, and, inside the execution function, add the code to make a request to the api, adding the API key as a parameter. A good thing to notice is that AWS Lambda can deal with promises as a return value, so it should be good to return a promise, handling the request result inside it.</p>
+            <pre><code>'use strict';
+const request = require('request');
+
+module.exports.hello = async (event) => {
+    return new Promise((resolve, reject) => {
+        request(`https://api.rawg.io/api/games?key=${process.env.RAWG_API_KEY}`, function(error, response, body) {
+            if(error) {
+                reject(error);
+                return;
+            }
+
+            resolve(body);
+        });
+    });
+};</code></pre>
+            <p>Deploy and test it. You should receive the API response as result.</p>
+            <!-- references -->
+            <h2>References</h2>
+            <p>[1] <a href="https://www.ibm.com/topics/api" target="_blank">https://www.ibm.com/topics/api</a></p>
+            <p>[2] <a href="https://docs.gigaspaces.com/sbp/master-worker-pattern.html" target="_blank">https://docs.gigaspaces.com/sbp/master-worker-pattern.html</a></p>
+            <p>[3] <a href="https://serverless-stack.com/chapters/what-is-serverless.html" target="_blank">https://serverless-stack.com/chapters/what-is-serverless.html</a></p>
+            <p>[4] <a href="https://aws.amazon.com/message-queue/" target="_blank">https://aws.amazon.com/message-queue/</a></p>
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                /*
+                
+                */
+                var disqus_config = function () {
+                this.page.url = 'http://mariotoledo.me/blog/serverless-data-wrapper-node-sqs-lambda.html';
+                this.page.identifier = 'serverless-data-wrapper-node-sqs-lambda';
+                };
+                (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://mariotoledo-me.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+        <div class="ui inverted vertical footer segment">
+            <div class="ui center aligned container">
+                <img src="../images/favicon.png" class="ui centered mini image">
+                <div class="ui horizontal inverted small divided link list">
+                    <a data-section="home" class="item" href="../index.html#home">Home</a>
+                    <a data-section="about" class="item" href="../index.html#about">About Me</a>
+                    <a data-section="personal" class="item" href="../index.html#personal">Personal Projects</a>
+                    <a data-section="professional" class="item" href="../index.html#professional">Professional</a>
+                    <a data-section="academic" class="item" href="../index.html#academic">Academic</a>
+                    <a class="item" href="index.html">Blog</a>
+                    <a data-section="contact" class="item" href="../index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.sidebar-menu-button').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+            $('.ui.accordion').accordion();
+        });
+    </script>
+    <!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124641455-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-124641455-1');
+	</script>
+</body>
+
+</html>
