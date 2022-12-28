@@ -218,7 +218,11 @@
 }
 
 .slider1 .item3 {
-  background:#AB2B2A;
+  background-color: #AB2B2A;
+  background:url("../images/nparty_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .slider1 .item3 .ui.primary.button, 
 .slider1 .item3 .ui.primary.buttons .button {
@@ -376,6 +380,7 @@
   .slide-item.item4 .ui.cards {
     max-width: 550px;
     margin: auto;
+    margin-top: 50px;
   } 
 }
 
@@ -383,6 +388,7 @@
   .slide-item.item4 .ui.cards {
     max-width: 830px;
     margin: auto;
+    margin-top: 50px;
   }
   .slide-item.item4 .ui.card:nth-child(3), 
   .slide-item.item4 .ui.cards>.card:nth-child(3) {
@@ -394,6 +400,7 @@
   .slide-item.item4 .ui.cards {
     max-width: 1100px;
     margin: auto;
+    margin-top: 50px;
   }
 }
 
@@ -436,6 +443,14 @@
 .image.content .image img,
 #githubprojects-modal img {
   width: 100%;
+}
+
+.project-content-desktop .ui.cards {
+  margin-top: 50px;
+}
+
+.project-content-desktop .ui.cards>.card {
+  box-shadow: none;
 }
 
 /* slider sizes */
@@ -489,15 +504,28 @@
   }
 
   .slider-image img {
-    max-width: 400px!important;
+    max-width: 100%!important;
+    width: auto;
     margin: auto;
     padding: 20px 0px;
+  }
+
+  .slider-image-container {
+    height: 300px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .project-content-mobile {
     display: none;
+  }
+
+  .item3 .project-content {
+    padding-top: 50px;
+  }
+
+  .item2 .project-content {
+    padding-top: 15px;
   }
 }
 

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Wordle Clone using Meteor JS - Mario Toledo</title>
+    <meta name="theme-color" content="#fff" />
+    <meta name="author" content="Mario Toledo" />
+    <meta name="reply-to" content="mariotoledo12@gmail.com" />
+    <meta name="keywords" content="developer, full-stack, fullstack, software, computer, scientist, science, web" />
+    <meta name="description" content="A Wordle Clone using Meteor JS" />
+    <meta name="google-site-verification" content="vwj3bJu3eoSb2fQ2f0r_GbXh5OzK15pli3hUCqluARQ" />
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+
+    <!-- =================================== -->
+    <!-- 			 FACEBOOK 				 -->
+    <!-- =================================== -->
+
+    <meta property="og:locale" content="pt-br" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wordle Clone using Meteor JS - Mario Toledo" />
+    <meta property="og:description" content="A Wordle Clone using Meteor JS" />
+    <meta property="og:url" content="http://mariotoledo.me/blog/cellular-automata-map-generation.html" />
+    <meta property="og:site_name" content="Mario Toledo" />
+    <meta property="og:image" content="https://mariotoledo.me/blog/images/wordle-clone-meteor-js-cover.jpg" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="360">
+
+    <!-- =================================== -->
+    <!-- 			  TWITTER 				 -->
+    <!-- =================================== -->
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://mariotoledo.me" />
+    <meta name="twitter:creator" content="@mario_toledo" />
+    <meta name="twitter:title" content="Wordle Clone using Meteor JS - Mario Toledo" />
+    <meta name="twitter:description"
+        content="A Wordle Clone using Meteor JS" />
+    <meta name="twitter:domain" content="Mario Toledo" />
+    <meta name="twitter:image" content="https://mariotoledo.me/blog/images/wordle-clone-meteor-js-cover.jpg" />
+
+    <!-- =================================== -->
+    <!-- 			  STYLE 				 -->
+    <!-- =================================== -->
+
+    <link rel="stylesheet" type="text/css" href="../semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="blog.css">
+    <link rel="stylesheet" type="text/css" href="blog-post.css">
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../semantic/semantic.min.js"></script>
+
+    <style>
+        .masthead:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .4;
+            z-index: -1;
+            background: url(images/wordle-clone-meteor-js-cover.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui sidebar inverted vertical menu">
+        <a data-section="home" class="item" href="../index.html#home">Home</a>
+        <a data-section="about" class="item" href="../index.html#about">About Me</a>
+        <a data-section="personal" class="item" href="../index.html#personal">Personal Projects</a>
+        <a data-section="professional" class="item" href="../index.html#professional">Professional</a>
+        <a data-section="academic" class="item" href="../index.html#academic">Academic</a>
+        <a data-section="contact" class="item" href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="pusher">
+        <div class="ui fixed inverted menu mobile-menu">
+            <div class="ui container">
+                <a class="toc item sidebar-menu-button"><i class="sidebar icon"></i></a>
+                <a href="../index.html" class="header item">
+                    <img class="logo" src="../images/favicon.png">
+                    Mario Toledo
+                </a>
+            </div>
+        </div>
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <a href="../index.html" class="header item">
+                    <img class="logo" src="../images/favicon.png">
+                    Mario Toledo
+                </a>
+                <a href="../index.html#home" class="item">Home</a>
+                <a href="../index.html#about" class="item">About Me</a>
+                <a href="../index.html#personal" class="item">Personal Projects</a>
+                <a href="../index.html#professional" class="item">Professional</a>
+                <a href="../index.html#academic" class="item">Academic</a>
+                <a href="../index.html#contact" class="item">Contact</a>
+            </div>
+        </div>
+
+        <div class="masthead segment">
+            <div class="ui container">
+                <div class="introduction">
+                    <div class="ui black version label">
+                        March 29, 2021
+                    </div>
+                    <h1 class="ui inverted header">
+                        <span class="library">
+                            Wordle Clone using Meteor JS
+                        </span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="ui text container">
+            <div class="ui breadcrumb">
+                <a href="../index.html" class="section">Home</a>
+                <i class="right angle icon divider"></i>
+                <a href="index.html" class="section">Blog</a>
+                <i class="right angle icon divider"></i>
+                <div class="active section">Wordle Clone using Meteor JS</div>
+            </div>
+            <h2>System Requirements</h2>
+            <p>Bla bla</p>
+            <h2>Project Setup</h2>
+            <p>Install Meteor</p>            
+            <pre><code>npm install -g meteor</code></pre>
+            <p>Create a basic project</p>
+            <pre><code>meteor create --vue wordle-clone</code></pre>
+            <p>If you receive any errors creating the project, check your console for any tips. In my case, I needed to run the following commands:</p>
+            <pre><code>meteor npm install --save @babel/runtime
+meteor npm install --save vue vue-meteor-tracker</code></pre>
+            <p>Run the project.</p>
+            <pre><code>meteor</code></pre>
+            <p>Type <i>http://localhost:3000</i> in your browser, and check if the app is loaded correctly.</p>
+            <p>Meteor creates a lot of files from the boilerplate project that we will not need. Start by removing the fixture.js file in the root folder, and then remove its import on main.js. Also, remove all files from collections folder, and, remove both files inside methods and publications. Finally, remove all components from the ui folder, and their imports on App.vue.</p>
+            <h2>Client Development</h2>
+            <p>Download bootstrap and add both bootstrap.min.css and bootstrap.min.css.map on imports folder, creating a new folder named bootstrap. Then, import it on main.js.</p>
+            <pre><code>import "../imports/bootstrap/bootstrap.min.css";</code></pre>
+            <p>Let's change the main colors of the application. On App.vue, change both background-color and color on the body entry in style.</p>
+            <pre><code>body {
+    padding: 10px;
+    background: #121213;
+    color: #d7dadc;
+}</code></pre>
+            <p>Let's shrink the application area. The quickiest way to do it is overring the value of max-width of the container inside the style. We only want to define the value when the container width is less than 576px. Start by adding the container class to the only div inside the application, and then, add the style code inside the style tag.</p>
+            <pre><code>@media (min-width: 576px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 500px;
+    }
+}</code></pre>
+            <div id="disqus_thread"></div>
+            <script>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                /*
+                
+                */
+                var disqus_config = function () {
+                this.page.url = 'http://mariotoledo.me/blog/cellular-automata-map-generation.html';
+                this.page.identifier = 'cellular-automata-map-generation';
+                };
+                (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://mariotoledo-me.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
+        <div class="ui inverted vertical footer segment">
+            <div class="ui center aligned container">
+                <img src="../images/favicon.png" class="ui centered mini image">
+                <div class="ui horizontal inverted small divided link list">
+                    <a data-section="home" class="item" href="../index.html#home">Home</a>
+                    <a data-section="about" class="item" href="../index.html#about">About Me</a>
+                    <a data-section="personal" class="item" href="../index.html#personal">Personal Projects</a>
+                    <a data-section="professional" class="item" href="../index.html#professional">Professional</a>
+                    <a data-section="academic" class="item" href="../index.html#academic">Academic</a>
+                    <a class="item" href="index.html">Blog</a>
+                    <a data-section="contact" class="item" href="../index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.sidebar-menu-button').click(function () {
+                $('.ui.sidebar').sidebar('toggle');
+            });
+        });
+    </script>
+    <!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124641455-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-124641455-1');
+	</script>
+</body>
+
+</html>

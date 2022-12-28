@@ -61,7 +61,6 @@
 		<a data-section="personal" class="item" href="index.html#personal">Personal Projects</a>
 		<a data-section="professional" class="item" href="index.html#professional">Professional</a>
 		<a data-section="academic" class="item" href="index.html#academic">Academic</a>
-		<a class="item" href="blog/index.html">Blog</a>
 		<a data-section="contact" class="item" href="index.html#contact">Contact</a>
 	</div>
 	<div class="pusher">
@@ -79,7 +78,6 @@
 							<a data-section="professional" class="item menuitem"
 								href="index.html#professional">Professional</a>
 							<a data-section="academic" class="item menuitem" href="index.html#academic">Academic</a>
-							<a class="item" href="blog/index.html">Blog</a>
 							<a data-section="contact" class="item menuitem" href="index.html#contact">Contact</a>
 							</div>
 						</div>
@@ -116,7 +114,7 @@
 						<p>I'm also a Computer Scientist and a M.S Computer Engineering, with published papers on
 							scientific events. My current studies involves Machine Learning, Big Data, Computer Vision
 							and Microservices.</p>
-						<p>And, oh... I really like Pokémon! <3 </p>
+						<p>And, oh... I really like Pokémon! &lt;3 </p>
 					</div>
 					<div class="six wide column cartoon-avatar-wrapper">
 						<img src="images/mariocartoon.jpg" class="cartoon-avatar cartoon-avatar-big"
@@ -135,7 +133,7 @@
 			</div>
 			<div class="slider slider1">
 				<div class="slides">
-					<div class="slide-item item1">
+					<!--<div class="slide-item item1">
 						<div class="ui container stackable grid">
 							<div class="row slider-content">
 								<div class="eight wide column slider-image">
@@ -180,35 +178,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="slide-item item2">
-						<div class="ui container stackable grid">
-							<div class="row slider-content slider-content-black">
-								<div class="eight wide column slider-image">
-									<img src="images/subarashow_1.png" alt="Subarashow" title="Subarashow" />
-								</div>
-								<div class="eight wide column">
-									<div class="project-content">
-										<h3>Subarashow</h3>
-										<div class="project-subtitle">Podcast about japanese pop culture</div>
-										<div class="project-content-desktop">
-											<p>Subarashow brings weekly podcasts dedicated japanese pop culture in a fun
-												and informative way, using the best of young language to make the viewer
-												feel inside a casual conversation between friends.</p>
-											<p>The project contains a CMS for podcasts and an API built with Meteor JS,
-												while the front-end was build using Node and Express JS.</p>
-											<p>I'm also one of the hosters and editor of most of episodes.</p>
-											<a class="ui button primary" href="http://www.subarashow.com.br"
-												target="_blank">Browse Website</a>
-										</div>
-										<div class="project-content-mobile">
-											<button class="ui button primary"
-												onclick="$('#subarashow-modal').modal('show');">More Details</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="slide-item item2-5">
 						<div class="ui container stackable grid">
 							<div class="row slider-content">
@@ -242,30 +211,27 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<div class="slide-item item3">
 						<div class="ui container stackable grid">
 							<div class="row slider-content">
 								<div class="eight wide column slider-image">
-									<img src="images/npartyconnect.png" alt="N-Party" title="N-Party" />
+									<div class="slider-image-container">
+										<img src="images/nparty_frente.png" alt="NParty" title="NParty" />
+									</div>
 								</div>
 								<div class="eight wide column">
 									<div class="project-content">
-										<h3>N-Party</h3>
-										<div class="project-subtitle">A community/hub for players to connect and
-											interact</div>
+										<h3>NParty</h3>
+										<div class="project-subtitle">A community/hub for players to connect and interact</div>
 										<div class="project-content-desktop">
 											<p>Founded in 2010, N-Party is a community to players to connect and
 												interact with other players by throught local and digital experience. By
-												using N-Party website, the users can lookup for groups of people to play
+												using NParty website, the users can lookup for groups of people to play
 												video-game, join or manage championships, and even write news and
 												articles about the video-game industry. The user has a gamefied profile,
 												gaining experience, levels and badges by interacting with the group
 												experience.</p>
-											<p>This project is currently in WIP, as the website had been turned down,
-												and we had to bring data together for backup reasons. But in the next
-												weeks, we are planing to bring the best digital experience that a gaming
-												community can create.</p>
 											<a class="ui button primary" href="https://www.nparty.com.br"
 												target="_blank">Browse Website</a>
 										</div>
@@ -278,49 +244,61 @@
 							</div>
 						</div>
 					</div>
+					<div class="slide-item item2">
+						<div class="ui container stackable grid">
+							<div class="row slider-content slider-content-black">
+								<div class="eight wide column slider-image">
+									<div class="slider-image-container">
+										<img src="images/subarashow_1.png" alt="Subarashow" title="Subarashow" />
+									</div>
+								</div>
+								<div class="eight wide column">
+									<div class="project-content">
+										<h3>Subarashow</h3>
+										<div class="project-subtitle">Podcast about japanese pop culture</div>
+										<div class="project-content-desktop">
+											<p>Subarashow brings weekly podcasts dedicated japanese pop culture in a fun
+												and informative way, using the best of young language to make the viewer
+												feel inside a casual conversation between friends.</p>
+											<p>The project contains a CMS for podcasts and an API built with Meteor JS,
+												while the front-end was build using Node and Express JS.</p>
+											<p>I'm also one of the hosters and editor of most of episodes.</p>
+											<a class="ui button primary" href="http://www.subarashow.com.br"
+												target="_blank">Browse Website</a>
+										</div>
+										<div class="project-content-mobile">
+											<button class="ui button primary"
+												onclick="$('#subarashow-modal').modal('show');">More Details</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 					<div class="slide-item item4">
 						<div class="ui container">
 							<div class="slider-content">
 								<div class="project-content">
 									<div class="project-content-desktop">
 										<h3>Other Projects</h3>
-										<div class="project-subtitle">Some of my projects from my Github</div>
+										<div class="project-subtitle">Some other of my personal projects</div>
 										<div class="ui link cards">
 											<a class="card"
-												href="https://github.com/mariotoledo/just-tap-to-travel-in-time"
+												href="https://www.streamow.tv/"
 												target="_blank">
-												<div class="image">
-													<img src="images/just-tap-to-travel-in-time.jpg">
-												</div>
-												<div class="content">
-													<div class="header">Just Tap to Travel in Time</div>
-												</div>
+												<img src="images/streamow.jpg" alt="Streamow">
 											</a>
-											<a class="card" href="https://github.com/mariotoledo/pokemon-20th-timeline"
+											<a class="card" href="https://gamersar.io/"
 												target="_blank">
-												<div class="image">
-													<img src="images/timelineInterativa.png">
-												</div>
-												<div class="content">
-													<div class="header">Pokémon 20th Timeline</div>
-												</div>
+												<img src="images/gamersario.jpg" alt="Gamersario.io">
 											</a>
-											<a class="card" href="https://github.com/mariotoledo/slack-ifood-agent"
+											<a class="card" href="https://animersar.io/"
 												target="_blank">
-												<div class="image">
-													<img src="images/niloesfiha.jpg">
-												</div>
-												<div class="content">
-													<div class="header">Slack iFood Agent</div>
-												</div>
+												<img src="images/animersario.jpg"  alt="Animersar.io">
 											</a>
-											<a class="card" href="https://github.com/mariotoledo" target="_blank">
-												<div class="image">
-													<img src="images/github.jpg">
-												</div>
-												<div class="content">
-													<div class="header">More on Github...</div>
-												</div>
+											<a class="card" href="http://www.equatle.com/" target="_blank">
+												<img src="images/equatle.jpg"  alt="Equatle">
 											</a>
 										</div>
 									</div>
@@ -328,13 +306,15 @@
 								<div class="project-content-mobile">
 									<div class="row">
 										<div class="eight wide column slider-image">
-											<img src="images/githubmobile.png" alt="Some of my projects on Github"
-												title="Some of my projects on Github" />
+											<div class="slider-image-container">
+												<img src="images/projects.jpg" alt="Some other of my personal projects"
+												title="Some other of my personal projects" />
+											</div>
 										</div>
 										<div class="eight wide column">
 											<div class="project-content">
 												<h3>Other Projects</h3>
-												<div class="project-subtitle">Some of my projects from my Github</div>
+												<div class="project-subtitle">Some other of my personal projects</div>
 												<button class="ui button primary"
 													onclick="$('#githubprojects-modal').modal('show');">More
 													Details</button>
@@ -357,10 +337,17 @@
 						<div class="five wide column">
 							<div class="ui accordion">
 								<div class="item">
-									<div class="title"> <i class="dropdown icon"></i>Afterverse (jun/2021 -
+									<div class="title"> <i class="dropdown icon"></i>Kokku (nov/2022 -
 										current)</div>
 									<div class="content">
-										<p>Lead game development using Unity.</p>
+										<p>Engineering Management for one of the biggest co-development companies in Brazil.</p>
+									</div>
+								</div>
+								<div class="item">
+									<div class="title"> <i class="dropdown icon"></i>Afterverse (jun/2021 -
+										oct/2022)</div>
+									<div class="content">
+										<p>Lead game development using Unity for PK XD, an online mobile game with 50kk MAU.</p>
 									</div>
 								</div>
 								<div class="item">
@@ -591,6 +578,15 @@
 							<div class="ui divided list" id="publishedWorksList">
 								<div class="item">
 									<div class="header works-header">
+										<div class="ui horizontal label">Book</div> <a href="https://loja.editoradialetica.com/ciencias-exatas-e-tecnologias/redes-neurais-para-sistemas-de-recomendacao-uso-de-redes-neurais-recorrentes-para-tratamento-de-cold-start-problem"
+											target="_blank">Redes Neurais para Sistemas de Recomendação: uso de Redes Neurais Recorrentes para tratamento de Cold-Start Problem</a>
+									</div>
+									2022<br />ISBN: 9786525263274<br />
+									<p>Cold-Start Problem é um problema recorrente em Sistemas de Recomendação nas seguintes situações: quando um novo item é adicionado ao sistema e não possui nenhuma avaliação prévia; ou quando um usuário sem histórico de avaliação entra no sistema. Avaliando as diferentes situações em que o Cold-Start Problem se apresenta, é possível considerar o uso do histórico de navegação como alternativa para geração de recomendações. Levando em conta o formato sequencial dos dados, estudos sugerem o uso de Redes Neurais Recorrentes (RNN) por permitir maior entendimento da sequência de dados e seu contexto. Durante a revisão sistemática realizada neste trabalho, as arquiteturas de LSTM, GRU e híbridas aparecem com frequência entre as pesquisas relacionadas ao tema. Entretanto, os autores dos trabalhos revisados não comparam as arquiteturas entre si, o que é crucial para o entendimento das vantagens e desvantagens do uso de dados do histórico de navegação com RNN. Este estudo propõe a comparação das arquiteturas de LSTM, GRU e híbridas de RNN através da criação de protótipos utilizando a mesma base de entrada, avaliando suas performances através dos valores de Acurácia, Revocação, Precisão e F1-Score..
+									</p>
+								</div>
+								<div class="item">
+									<div class="header works-header">
 										<div class="ui horizontal label">Paper</div> <a href="docs/icaai2020.pdf"
 											target="_blank">Comparison of LSTM, GRU and Hybrid Architectures for usage
 											of Deep Learning on Recommendation Systems</a>
@@ -742,38 +738,49 @@
 	<div class="ui modal" id="githubprojects-modal">
 		<i class="close icon"></i>
 		<div class="header">
-			Github Projects
+			Other Projects
 		</div>
 		<div class="image content">
 			<div class="description">
-				<p>Here are some of my Github Projects. You can check my whole profile by <a
-						href="https://github.com/mariotoledo" target="_blank">clicking here</a>.</p>
+				<p>Here are some of my other personal projects.</p>
 
-				<h4>Just Tap to Travel in Time</h4>
-				<img src="images/just-tap-to-travel-in-time.jpg">
-				<p>A colaborative Phaser game made to an online Game Jam with a time-travel theme.</p>
-				<a class="ui button primary enabled" href="https://github.com/mariotoledo/just-tap-to-travel-in-time"
-					target="_blank">Check repository</a>
+				<h4>Streamow</h4>
+				<img src="images/streamow.jpg">
+				<p>Streamow brings the most famous game streaming platforms into a unique
+					catalog focused on user experience to recommend the best streamers and
+					games for viewers. Also, Streamow is available for browsers, Android and
+					iPhone (soon), so users can receive notifications when their favorite
+					streamer is online whenever they are. A recommendation algorithm was
+					also implemented for accurate recommendations.</p>
+				<a class="ui button primary enabled" href="https://streamow.tv" target="_blank">Browse Website</a>
 
-				<h4>Pokémon 20th Timeline</h4>
-				<img src="images/timelineInterativa.png">
-				<p>A interative and fan-made timeline for the 20th Pokémon Anniversary.</p>
-				<a class="ui button primary enabled" href="https://github.com/mariotoledo/pokemon-20th-timeline"
-					target="_blank">Check repository</a>
+				<h4>Gamersar.io</h4>
+				<img src="images/gamersario.jpg">
+				<p>Gamersar.io displays video-games anniversaries in a more visual and
+					interesting way, allowing users to discover the games which are
+					celebrating anniversary on the current day or on any desired date. Also,
+					it is possible to filter by any platform or genre that the user wishes.
+					It was also built a Twitter Bot that tweets regularly about the
+					currently games that are celebrating anniversary on the current date.</p>
+				<a class="ui button primary enabled" href="https://gamersar.io"
+					target="_blank">Browse Website</a>
 
-				<h4>Cellular Automata Map Generation</h4>
-				<img src="images/automatosCelulares.jpg">
-				<p>A Cellular Automata usage to generate a random map in a dungeon crawler game made with XNA.</p>
+				<h4>Animersar.io</h4>
+				<img src="images/animersario.jpg">
+				<p>Animersar.io displays anime character anniversaries in a more visual and
+					interesting way, allowing users to discover the games which are
+					celebrating anniversary on the current day or on any desired date. 
+					It was also built a Twitter Bot that tweets regularly about the
+					currently games that are celebrating anniversary on the current date.</p>
 				<a class="ui button primary enabled"
-					href="https://github.com/mariotoledo/cellular-automata-map-generation" target="_blank">Check
+					href="https://animersar.io" target="_blank">Check
 					repository</a>
 
-				<h4>Slack iFood Agent</h4>
-				<img src="images/niloesfiha.jpg">
-				<p>A slackbot that helps groups of users to make orders from iFood on Slack. Made using node.js and
-					slack-terminalize package.</p>
-				<a class="ui button primary enabled" href="https://github.com/mariotoledo/slack-ifood-agent"
-					target="_blank">Check repository</a>
+				<h4>Equatle</h4>
+				<img src="images/equatle.jpg">
+				<p>A Wordle clone using Meteor JS.</p>
+				<a class="ui button primary enabled" href="http://www.equatle.com"
+					target="_blank">Browse Website</a>
 			</div>
 		</div>
 	</div>
@@ -1208,7 +1215,7 @@
 				<img class="media-image" src="images/readers/4.png" alt="O Globo" />
 				<img class="media-image" src="images/readers/5.jpg" alt="Caras" />
 				<img class="media-image" src="images/readers/6.jpg" alt="Valor Econômico" />
-				<img class="media-image" src="images/readers/7.jpg" alt="Hoje em Dia" />
+				<img class="media-image" src="images/readers/7.jpeg" alt="Hoje em Dia" />
 			</div>
 		</div>
 	</div>
